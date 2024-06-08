@@ -1,0 +1,16 @@
+.sectionContainer {
+    width: 95%;
+    height: 50%;
+}
+.section {
+    height: auto;
+}
+.sectionRowContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+    overflow: hidden;
+}

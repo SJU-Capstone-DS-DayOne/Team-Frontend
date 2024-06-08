@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "GoldenPlainsDemo";
+    src: url("./fonts/GoldenPlains-Demo.ttf");
+}
+@font-face {
+    font-family: "NanumGothicBold";
+    src: url("./fonts/NanumGothicBold.ttf");
+}
+@font-face {
+    font-family: "NanumGothicExtraBold";
+    src: url("./fonts/NanumGothicExtraBold.ttf");
+}
+@font-face {
+    font-family: "NanumPen";
+    src: url("./fonts/NanumPen.ttf");
+}
+@font-face {
+    font-family: "SUITE-Regular";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Bold.woff2")
+        format("woff2");
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Pretendard-Medium";
+    src: url("./fonts/Pretendard-Medium.otf");
+}
+@font-face {
+    font-family: "Pretendard-SemiBold";
+    src: url("./fonts/Pretendard-SemiBold.otf");
+}
+@font-face {
+    font-family: "Pretendard-Bold";
+    src: url("./fonts/Pretendard-Bold.otf");
+}
+@font-face {
+    font-family: "Pretendard-ExtraBold";
+    src: url("./fonts/Pretendard-ExtraBold.otf");
+}
+
+:root {
+    font-family: Pretendard-Medium;
+    color-scheme: light dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.rotate:hover {
+    transform: rotateY(180edg);
+}

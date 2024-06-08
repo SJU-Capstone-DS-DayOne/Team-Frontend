@@ -1,0 +1,64 @@
+#hello_path_E2 {
+    stroke-dasharray: 362.6600646972656; /* 선의 전체 길이와 같은 값으로 설정 */
+    stroke-dashoffset: 362.6600646972656; /* stroke-dasharray 값과 동일하게 설정하여 선이 숨겨지도록 시작 */
+    animation: draw 2s linear forwards;
+    animation-delay: 1.8s;
+}
+#hello_path_E1 {
+    stroke-dasharray: 362.6600646972656; /* 선의 전체 길이와 같은 값으로 설정 */
+    stroke-dashoffset: 362.6600646972656; /* stroke-dasharray 값과 동일하게 설정하여 선이 숨겨지도록 시작 */
+    animation: draw 2s linear forwards;
+    animation-delay: 0.9s;
+}
+#hello_path_T1 {
+    stroke-dasharray: 444.66046142578125; /* 선의 전체 길이와 같은 값으로 설정 */
+    stroke-dashoffset: 444.66046142578125; /* stroke-dasharray 값과 동일하게 설정하여 선이 숨겨지도록 시작 */
+    animation: draw 2s linear forwards;
+    animation-delay: 1.2s;
+}
+#hello_path_T2 {
+    stroke-dasharray: 444.66046142578125; /* 선의 전체 길이와 같은 값으로 설정 */
+    stroke-dashoffset: 444.66046142578125; /* stroke-dasharray 값과 동일하게 설정하여 선이 숨겨지도록 시작 */
+    animation: draw 2s linear forwards;
+    animation-delay: 1.5s;
+}
+#hello_path_L {
+    stroke-dasharray: 792.7698974609375; /* 선의 전체 길이와 같은 값으로 설정 */
+    stroke-dashoffset: 792.7698974609375; /* stroke-dasharray 값과 동일하게 설정하여 선이 숨겨지도록 시작 */
+    animation: draw1 2s linear forwards;
+    animation-delay: 0.4s;
+}
+#hello_path_A {
+    stroke-dasharray: 442.81182861328125; /* 선의 전체 길이와 같은 값으로 설정 */
+    stroke-dashoffset: 442.81182861328125; /* stroke-dasharray 값과 동일하게 설정하여 선이 숨겨지도록 시작 */
+    animation: draw1 2s linear forwards;
+    animation-delay: 0.2s;
+}
+#hello_path_P {
+    stroke-dasharray: 815.9325561523438; /* 선의 전체 길이와 같은 값으로 설정 */
+    stroke-dashoffset: 815.9325561523438; /* stroke-dasharray 값과 동일하게 설정하여 선이 숨겨지도록 시작 */
+    animation: draw1 2s linear forwards;
+}
+
+@keyframes draw {
+    80% {
+        fill-opacity: 0;
+    }
+    100% {
+        fill-opacity: 1;
+        stroke-dashoffset: 0; /* stroke-dashoffset을 0으로 설정하여 선을 완전히 채움 */
+    }
+}
+@keyframes draw1 {
+    60% {
+        fill-opacity: 0;
+    }
+    90% {
+        fill-opacity: 1;
+        stroke-dashoffset: 0; /* stroke-dashoffset을 0으로 설정하여 선을 완전히 채움 */
+    }
+    100% {
+        fill-opacity: 1;
+        stroke-dashoffset: 0;
+    }
+}
