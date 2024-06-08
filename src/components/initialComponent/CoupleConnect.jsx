@@ -50,7 +50,7 @@ export default function CoupleConnect() {
 
     const onCoupleConnect = async () => {
         const result = await postCoupleCode(parseInt(inputValue));
-        if (result) navigate("/react-actions/");
+        if (result) navigate("/Palette-FE/");
     };
 
     return (
