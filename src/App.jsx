@@ -34,7 +34,7 @@ export default function App() {
 
             <Route path="/Palette-FE//main" element={<Main />}>
                 <Route index element={<Article />} />
-                <Route path="/Palette-FE/:id" element={<Detail />} />
+                <Route path=":id" element={<Detail />} />
             </Route>
 
             <Route path="/Palette-FE//final" element={<Final />} />
