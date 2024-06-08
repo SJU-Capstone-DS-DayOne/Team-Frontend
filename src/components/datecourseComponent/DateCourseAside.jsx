@@ -272,7 +272,7 @@ export default function DateCourseAside() {
                     리뷰를 통해 연인과의 데이트 기록을 남겨보세요
                 </div>
                 <Link
-                    to={"/history"}
+                    to={"/Palette-FE//history"}
                     className="w-full rounded-xl p-4 bg-[#6e3bff] text-center"
                 >
                     <div className="text-white">리뷰쓰러가기</div>

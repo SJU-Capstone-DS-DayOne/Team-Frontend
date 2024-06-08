@@ -30,7 +30,7 @@ export default function SignupForm() {
             birth
         );
         if (result) {
-            navigate("/");
+            navigate("/Palette-FE");
         }
     };
     const onChangeSignupOpacity = () => {

@@ -32,7 +32,7 @@ export default function Login1() {
 
         if (result) {
             console.log("login");
-            navi("/");
+            navi("/Palette-FE");
         } else {
             setFail(false);
         }
@@ -149,11 +149,10 @@ export default function Login1() {
                     </div>
                 </form>
                 <div className="flex items-center justify-end w-full gap-1 my-4">
-                    <Link to="/signup">
-                        <div className="font-semibold text-[#c1c1c1] cursor-pointer">
-                            아이디
-                        </div>
-                    </Link>
+                    <div className="font-semibold text-[#c1c1c1] cursor-pointer">
+                        아이디
+                    </div>
+
                     <div className="text-[#c1c1c1] ">/</div>
                     <div className="font-semibold text-[#c1c1c1] cursor-pointer">
                         비밀번호 찾기
@@ -164,7 +163,7 @@ export default function Login1() {
                         아직 회원이 아니신가요?
                     </div>
                     <Link
-                        to={"/signup"}
+                        to={"/Palette-FE/signup"}
                         className="text-[#6e3bff] font-[Pretendard-Bold]"
                     >
                         회원가입

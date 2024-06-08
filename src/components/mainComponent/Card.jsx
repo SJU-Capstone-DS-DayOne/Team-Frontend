@@ -31,7 +31,7 @@ export default function Card(prop) {
         setDetailInfor(result);
         const review = await getRestaurantReview(prop.prop.id);
         setDetailReview(review);
-        navi(`${prop.prop.id}#infor`);
+        navi(`/Palette-FE/main/${prop.prop.id}#infor`);
     };
     const onClickRemove = () => {
         if (focus === "식당") {

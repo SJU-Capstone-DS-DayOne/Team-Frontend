@@ -32,13 +32,13 @@ export default function App() {
                 <Route path="/Palette-FE/history" element={<History />} />
             </Route>
 
-            <Route path="/Palette-FE//main" element={<Main />}>
+            <Route path="/Palette-FE/main" element={<Main />}>
                 <Route index element={<Article />} />
-                <Route path=":id" element={<Detail />} />
+                <Route path="/Palette-FE/main/:id" element={<Detail />} />
             </Route>
 
-            <Route path="/Palette-FE//final" element={<Final />} />
-            <Route path="/Palette-FE//datecourse" element={<DateCourse />} />
+            <Route path="/Palette-FE/final" element={<Final />} />
+            <Route path="/Palette-FE/datecourse" element={<DateCourse />} />
         </Routes>
     );
 }

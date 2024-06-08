@@ -41,17 +41,17 @@ export default function Detailheader() {
                     if (restaurantList.length === 2) {
                         if (cafeList.length < 3) {
                             setFocus("카페");
-                            navigate("/main");
+                            navigate("/Palette-FE/main");
                         } else {
                             if (barList.length < 3) {
                                 setFocus("술집");
-                                navigate("/main");
+                                navigate("/Palette-FE/main");
                             } else {
-                                navigate("/final");
+                                navigate("/Palette-FE/final");
                             }
                         }
                     } else {
-                        navigate("/main");
+                        navigate("/Palette-FE/main");
                     }
                 }
             }
@@ -64,17 +64,17 @@ export default function Detailheader() {
                     if (cafeList.length === 2) {
                         if (restaurantList.length < 3) {
                             setFocus("식당");
-                            navigate("/main");
+                            navigate("/Palette-FE/main");
                         } else {
                             if (barList.length < 3) {
                                 setFocus("술집");
-                                navigate("/main");
+                                navigate("/Palette-FE/main");
                             } else {
-                                navigate("/final");
+                                navigate("/Palette-FE/final");
                             }
                         }
                     } else {
-                        navigate("/main");
+                        navigate("/Palette-FE/main");
                     }
                 }
             }
@@ -87,24 +87,24 @@ export default function Detailheader() {
                     if (barList.length === 2) {
                         if (restaurantList.length < 3) {
                             setFocus("식당");
-                            navigate("/main");
+                            navigate("/Palette-FE/main");
                         } else {
                             if (cafeList.length < 3) {
                                 setFocus("카페");
-                                navigate("/main");
+                                navigate("/Palette-FE/main");
                             } else {
-                                navigate("/final");
+                                navigate("/Palette-FE/final");
                             }
                         }
                     } else {
-                        navigate("/main");
+                        navigate("/Palette-FE/main");
                     }
                 }
             }
         }
     };
     const onClickBack = () => {
-        navigate("/main");
+        navigate("/Palette-FE/main");
     };
 
     return (

@@ -38,7 +38,7 @@ export default function RightSection() {
                 }
             }
         });
-        navi("/main");
+        navi("/Palette-FE/main");
         // const result = await getAi();
         // console.log(result);
     };

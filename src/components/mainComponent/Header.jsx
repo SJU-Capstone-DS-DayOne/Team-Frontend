@@ -13,14 +13,14 @@ export default function Header() {
     return (
         <div className="flex items-center justify-between w-full h-full bg-opacity-60 backdrop-blur-xl border-b-[1px] border-b-[#d9d9d9] px-20 xl:px-32">
             <Link
-                to="/main"
+                to="/Palette-FE/main"
                 className="font-[Pretendard-Bold] text-[#6E3Bff] text-[36px] cursor-pointer"
             >
                 Palette
             </Link>
 
             <Link
-                to="/react-actions/infor"
+                to="/Palette-FE/infor"
                 className="flex items-center gap-4 px-5 py-2 cursor-pointer xl:py-3"
             >
                 <div className="font-[Pretendard-SemiBold] text-[#606060]">

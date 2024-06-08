@@ -16,7 +16,7 @@ export default function FinalList() {
         cafeArrays,
         barArrays,
     } = useStore(storeListSelect);
-    console.log(restaurantList);
+
     const { isSelect } = useStore(storeCategory);
     const { focus, setFocus } = useStore(storeChooseFocus);
     const {
@@ -48,7 +48,7 @@ export default function FinalList() {
             barRestaurantId
         );
         if (result) {
-            navi("/datecourse");
+            navi("/Palette-FE/datecourse");
         }
     };
     useEffect(() => {

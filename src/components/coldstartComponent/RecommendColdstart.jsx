@@ -132,7 +132,7 @@ export default function RecommendColdstart() {
                 setGender(data.gender);
                 data.phone ? setPhone(data.phone) : null;
                 data.birthOfDate ? setBirth(data.birthOfDate) : null;
-                navi("/react-actions");
+                navi("/Palette-FE/");
             }
         };
         fetchDate();
