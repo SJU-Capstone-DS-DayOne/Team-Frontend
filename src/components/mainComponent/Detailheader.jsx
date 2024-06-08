@@ -41,17 +41,17 @@ export default function Detailheader() {
                     if (restaurantList.length === 2) {
                         if (cafeList.length < 3) {
                             setFocus("카페");
-                            navigate("/react-actions/main");
+                            navigate("/main");
                         } else {
                             if (barList.length < 3) {
                                 setFocus("술집");
-                                navigate("/react-actions/main");
+                                navigate("/main");
                             } else {
-                                navigate("/react-actions/final");
+                                navigate("/final");
                             }
                         }
                     } else {
-                        navigate("/react-actions/main");
+                        navigate("/main");
                     }
                 }
             }
@@ -64,17 +64,17 @@ export default function Detailheader() {
                     if (cafeList.length === 2) {
                         if (restaurantList.length < 3) {
                             setFocus("식당");
-                            navigate("/react-actions/main");
+                            navigate("/main");
                         } else {
                             if (barList.length < 3) {
                                 setFocus("술집");
-                                navigate("/react-actions/main");
+                                navigate("/main");
                             } else {
-                                navigate("/react-actions/final");
+                                navigate("/final");
                             }
                         }
                     } else {
-                        navigate("/react-actions/main");
+                        navigate("/main");
                     }
                 }
             }
@@ -87,24 +87,24 @@ export default function Detailheader() {
                     if (barList.length === 2) {
                         if (restaurantList.length < 3) {
                             setFocus("식당");
-                            navigate("/react-actions/main");
+                            navigate("/main");
                         } else {
                             if (cafeList.length < 3) {
                                 setFocus("카페");
-                                navigate("/react-actions/main");
+                                navigate("/main");
                             } else {
-                                navigate("/react-actions/final");
+                                navigate("/final");
                             }
                         }
                     } else {
-                        navigate("/react-actions/main");
+                        navigate("/main");
                     }
                 }
             }
         }
     };
     const onClickBack = () => {
-        navigate("/react-actions/main");
+        navigate("/main");
     };
 
     return (

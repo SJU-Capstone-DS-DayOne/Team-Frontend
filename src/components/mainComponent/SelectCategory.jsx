@@ -27,7 +27,7 @@ export default function SelectCategory() {
         <div className="flex flex-col gap-2">
             {Object.keys(isSelect).map((val, idx) => (
                 <Link
-                    to={"/react-actions/main"}
+                    to={"/main"}
                     className="flex w-full rounded-2xl h-[10dvh] p-2 items-center cursor-pointer xl:p-3"
                     key={idx}
                     style={{

@@ -13,7 +13,7 @@ export default function Header() {
     return (
         <div className="flex items-center justify-between w-full h-full bg-opacity-60 backdrop-blur-xl border-b-[1px] border-b-[#d9d9d9] px-20 xl:px-32">
             <Link
-                to="/react-actions/main"
+                to="/main"
                 className="font-[Pretendard-Bold] text-[#6E3Bff] text-[36px] cursor-pointer"
             >
                 Palette

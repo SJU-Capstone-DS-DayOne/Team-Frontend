@@ -18,7 +18,7 @@ import "./index.css";
 export default function App() {
     return (
         <Routes>
-            <Route path="/react-actions" element={<Landing />}>
+            <Route path="/" element={<Landing />}>
                 <Route index element={<LandingMain />} />
                 <Route path="login" element={<Login />} />
                 <Route path="signup" element={<SignUp />} />
@@ -29,13 +29,13 @@ export default function App() {
                 <Route path="history" element={<History />} />
             </Route>
 
-            <Route path="/react-actions/main" element={<Main />}>
+            <Route path="/main" element={<Main />}>
                 <Route index element={<Article />} />
                 <Route path=":id" element={<Detail />} />
             </Route>
 
-            <Route path="/react-actions/final" element={<Final />} />
-            <Route path="/react-actions/datecourse" element={<DateCourse />} />
+            <Route path="/final" element={<Final />} />
+            <Route path="/datecourse" element={<DateCourse />} />
         </Routes>
     );
 }

@@ -1,8 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import foodImg1 from "../../imgs/jungmunImg.jpeg";
-// import foodImg2 from "../../imgs/foodImg2.jpg";
-// import foodImg3 from "../../imgs/foodImg3.jpg";
 import { getRestaurantDetail } from "../../apis/getRestaurantDetail";
 import { useStore } from "zustand";
 import storeDetailInfor from "../../clients/DetailInfor";

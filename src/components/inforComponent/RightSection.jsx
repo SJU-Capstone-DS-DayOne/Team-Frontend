@@ -38,7 +38,7 @@ export default function RightSection() {
                 }
             }
         });
-        navi("/react-actions/main");
+        navi("/main");
         // const result = await getAi();
         // console.log(result);
     };

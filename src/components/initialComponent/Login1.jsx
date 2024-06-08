@@ -32,7 +32,7 @@ export default function Login1() {
 
         if (result) {
             console.log("login");
-            navi("/react-actions/");
+            navi("/");
         } else {
             setFail(false);
         }
@@ -149,7 +149,7 @@ export default function Login1() {
                     </div>
                 </form>
                 <div className="flex items-center justify-end w-full gap-1 my-4">
-                    <Link to="/react-actions/signup">
+                    <Link to="/signup">
                         <div className="font-semibold text-[#c1c1c1] cursor-pointer">
                             아이디
                         </div>
@@ -164,7 +164,7 @@ export default function Login1() {
                         아직 회원이 아니신가요?
                     </div>
                     <Link
-                        to={"/react-actions/signup"}
+                        to={"/signup"}
                         className="text-[#6e3bff] font-[Pretendard-Bold]"
                     >
                         회원가입

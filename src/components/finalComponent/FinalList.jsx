@@ -48,7 +48,7 @@ export default function FinalList() {
             barRestaurantId
         );
         if (result) {
-            navi("/react-actions/datecourse");
+            navi("/datecourse");
         }
     };
     useEffect(() => {

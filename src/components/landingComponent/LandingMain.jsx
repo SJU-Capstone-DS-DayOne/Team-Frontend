@@ -24,7 +24,7 @@ export default function LandingMain() {
     }, [access]);
 
     const onClickRecommend = () => {
-        if (coupleExist) navi("/react-actions/infor");
+        if (coupleExist) navi("/infor");
         else setCoupleConnect(true);
     };
     const onClickBack = () => {
@@ -57,7 +57,7 @@ export default function LandingMain() {
                         돌아가기
                     </div>
                     <Link
-                        to={"/react-actions/coupleconnect"}
+                        to={"/coupleconnect"}
                         className="px-4 py-3 bg-[#6e3bff] text-[#ffffff] rounded-xl flex-1 text-center cursor-pointer"
                     >
                         연동하기

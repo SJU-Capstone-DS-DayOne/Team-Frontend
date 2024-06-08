@@ -32,7 +32,7 @@ export default function LandingHeader() {
                     } else {
                         const res = await getColdstart();
                         setInfor(res);
-                        navi("/react-actions/coldstart");
+                        navi("/coldstart");
                     }
                 } catch (error) {
                     console.error("Error fetching data:", error);
@@ -60,14 +60,14 @@ export default function LandingHeader() {
                 </Link>
                 {access ? (
                     <Link
-                        to={"/react-actions/history"}
+                        to={"/history"}
                         className="text-[#c1c1c1] text-lg leading-normal flex pt-1 cursor-pointer"
                     >
                         History
                     </Link>
                 ) : null}
                 <Link
-                    to={"/react-actions/infor"}
+                    to={"/infor"}
                     className="text-[#c1c1c1] text-lg leading-normal flex pt-1 cursor-pointer"
                 >
                     About us
@@ -77,20 +77,20 @@ export default function LandingHeader() {
                 className="gap-2"
                 style={{
                     display:
-                        location.pathname === "/react-actions/login" ||
-                        location.pathname === "/react-actions/signup" ||
-                        location.pathname === "/react-actions/coldstart"
+                        location.pathname === "/login" ||
+                        location.pathname === "/signup" ||
+                        location.pathname === "/coldstart"
                             ? "none"
                             : "flex",
                 }}
             >
                 {access ? (
                     <Link
-                        to={"/react-actions/profile"}
+                        to={"/profile"}
                         className="flex gap-1 border-b-2 cursor-pointer"
                         style={{
                             borderBottomColor:
-                                location.pathname === "/react-actions/profile"
+                                location.pathname === "/profile"
                                     ? "#6e3bff"
                                     : "#c1c1c1",
                         }}
@@ -103,13 +103,13 @@ export default function LandingHeader() {
                 ) : (
                     <>
                         <Link
-                            to={"/react-actions/signup"}
+                            to={"/signup"}
                             className="flex items-center justify-center px-4 py-2 text-lg rounded-xl text-[#606060] cursor-pointer"
                         >
                             Sign up
                         </Link>
                         <Link
-                            to={"/react-actions/login"}
+                            to={"/login"}
                             className="flex items-center justify-center px-4 py-2 text-lg rounded-xl bg-[#6e3bff] text-white cursor-pointer hover:opacity-80"
                         >
                             Log in
