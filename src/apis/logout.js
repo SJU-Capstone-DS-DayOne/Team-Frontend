@@ -1,8 +1,6 @@
 import axios from "axios";
 
 export const logout = async () => {
-    const access = localStorage.getItem("access");
-    axios.defaults.headers["access"] = access;
     axios.defaults.withCredentials = true;
     // eslint-disable-next-line react-hooks/rules-of-hooks
 

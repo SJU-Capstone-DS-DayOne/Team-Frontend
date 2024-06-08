@@ -1,9 +1,6 @@
 import axios from "axios";
 
 export const getColdstart = async () => {
-    const access = localStorage.getItem("access");
-    axios.defaults.headers["access"] = access;
-
     try {
         const response = await axios.get(
             `https://${

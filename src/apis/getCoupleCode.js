@@ -3,8 +3,6 @@ import axios from "axios";
 
 export const getCoupleCode = async () => {
     // const memberId = localStorage.getItem("memberId");
-    const access = localStorage.getItem("access");
-    axios.defaults.headers["access"] = access;
 
     try {
         const response = await axios.get(

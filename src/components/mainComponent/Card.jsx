@@ -30,6 +30,7 @@ export default function Card(prop) {
         const result = await getRestaurantDetail(prop.prop.id);
         setDetailInfor(result);
         const review = await getRestaurantReview(prop.prop.id);
+        console.log(review);
         setDetailReview(review);
         navi(`/Palette-FE/main/${prop.prop.id}#infor`);
     };

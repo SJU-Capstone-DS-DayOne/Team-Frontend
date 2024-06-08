@@ -1,9 +1,6 @@
 import axios from "axios";
 
 export const getTypeInformation = async (name, isSelect) => {
-    const access = localStorage.getItem("access");
-    axios.defaults.headers["access"] = access;
-
     const params = {
         district: name,
         rst: isSelect["식당"],

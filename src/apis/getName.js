@@ -1,8 +1,6 @@
 import axios from "axios";
 
 export async function getName() {
-    const access = localStorage.getItem("access");
-    axios.defaults.headers["access"] = access;
     axios.defaults.withCredentials = true;
     try {
         const response = await axios.get(

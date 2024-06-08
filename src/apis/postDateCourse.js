@@ -5,9 +5,6 @@ export const postDateCourse = async (
     cafeRestaurantId = null,
     barRestaurantId = null
 ) => {
-    const access = localStorage.getItem("access");
-    console.log(access);
-    axios.defaults.headers["access"] = access;
     axios.defaults.withCredentials = true;
 
     const requestBody = {

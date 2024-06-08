@@ -1,8 +1,6 @@
 import axios from "axios";
 
 export const postDateCourseReview = async (id, content) => {
-    const access = localStorage.getItem("access");
-    axios.defaults.headers["access"] = access;
     axios.defaults.withCredentials = true;
 
     try {

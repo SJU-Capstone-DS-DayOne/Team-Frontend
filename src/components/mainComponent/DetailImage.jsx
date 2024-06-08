@@ -11,8 +11,6 @@ export default function DetailImage() {
         return a.ranking - b.ranking;
     });
 
-    console.log(sortedMenu);
-
     const [hovering, isHovering] = useState(null);
 
     return (
