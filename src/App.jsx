@@ -18,24 +18,27 @@ import "./index.css";
 export default function App() {
     return (
         <Routes>
-            <Route path="/" element={<Landing />}>
+            <Route path="/Palette-FE/" element={<Landing />}>
                 <Route index element={<LandingMain />} />
-                <Route path="login" element={<Login />} />
-                <Route path="signup" element={<SignUp />} />
-                <Route path="coldstart" element={<ColdStart />} />
-                <Route path="profile" element={<Profile />} />
-                <Route path="infor" element={<Infor />} />
-                <Route path="coupleconnect" element={<CoupleConnect />} />
-                <Route path="history" element={<History />} />
+                <Route path="/Palette-FE/login" element={<Login />} />
+                <Route path="/Palette-FE/signup" element={<SignUp />} />
+                <Route path="/Palette-FE/coldstart" element={<ColdStart />} />
+                <Route path="/Palette-FE/profile" element={<Profile />} />
+                <Route path="/Palette-FE/infor" element={<Infor />} />
+                <Route
+                    path="/Palette-FE/coupleconnect"
+                    element={<CoupleConnect />}
+                />
+                <Route path="/Palette-FE/history" element={<History />} />
             </Route>
 
-            <Route path="/main" element={<Main />}>
+            <Route path="/Palette-FE//main" element={<Main />}>
                 <Route index element={<Article />} />
-                <Route path=":id" element={<Detail />} />
+                <Route path="/Palette-FE/:id" element={<Detail />} />
             </Route>
 
-            <Route path="/final" element={<Final />} />
-            <Route path="/datecourse" element={<DateCourse />} />
+            <Route path="/Palette-FE//final" element={<Final />} />
+            <Route path="/Palette-FE//datecourse" element={<DateCourse />} />
         </Routes>
     );
 }
