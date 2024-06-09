@@ -1,4 +1,5 @@
 import axios from "axios";
+// import { getNewAccessToken } from "./vaildAccessToken";
 
 export const logout = async () => {
     axios.defaults.withCredentials = true;
@@ -15,11 +16,9 @@ export const logout = async () => {
             }
         );
 
-        if (response.status === 200) {
-            console.log(response);
-            localStorage.removeItem("access");
-            return true; // 로그인 성공
-        }
+        console.log(response);
+        localStorage.removeItem("access");
+        return true; // 로그인 성공
     } catch (error) {
         console.error(error);
         return false; // 로그인 실패
