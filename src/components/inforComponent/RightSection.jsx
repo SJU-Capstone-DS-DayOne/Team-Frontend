@@ -14,10 +14,11 @@ export default function RightSection() {
 
     const navi = useNavigate();
 
-    const onClickCategory = (event) => {
-        const value = event.target.innerText;
-        if (value !== undefined) {
-            onChange(value);
+    const onClickCategory = (event, val) => {
+        event.stopPropagation();
+        console.log(val);
+        if (val !== undefined) {
+            onChange(val);
         }
     };
 
@@ -56,6 +57,7 @@ export default function RightSection() {
                                     val === name ? "#6e3bff" : "#f3f3f3",
                             }}
                             key={idx}
+                            onClick={onClick}
                         >
                             <div
                                 className="text-center "
@@ -63,7 +65,6 @@ export default function RightSection() {
                                     color: val === name ? "#ffffff" : "#606060",
                                     pointerEvents: idx <= 2 ? "auto" : "none",
                                 }}
-                                onClick={onClick}
                             >
                                 {val}
                             </div>
@@ -84,7 +85,11 @@ export default function RightSection() {
                                     ? "#6E3BFF"
                                     : "#f3f3f3",
                             }}
-                            onClick={idx !== 0 ? onClickCategory : null}
+                            onClick={
+                                idx !== 0
+                                    ? (event) => onClickCategory(event, val)
+                                    : null
+                            }
                         >
                             {idx === 0 ? (
                                 <svg
@@ -93,6 +98,9 @@ export default function RightSection() {
                                     viewBox="0 0 40 40"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
+                                    onClick={(event) =>
+                                        onClickCategory(event, val)
+                                    }
                                 >
                                     <g clipPath="url(#clip0_205_3070)">
                                         <path
@@ -129,6 +137,9 @@ export default function RightSection() {
                                     viewBox="0 0 40 40"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
+                                    onClick={(event) =>
+                                        onClickCategory(event, val)
+                                    }
                                 >
                                     <path
                                         d="M28.0691 30.55H7.04967C6.37745 30.55 5.83301 31.0945 5.83301 31.7667C5.83301 32.4389 6.37745 32.9834 7.04967 32.9834H28.0719C28.7441 32.9834 29.2886 32.4389 29.2886 31.7667C29.2886 31.0945 28.7441 30.55 28.0719 30.55H28.0691Z"
@@ -154,6 +165,9 @@ export default function RightSection() {
                                     viewBox="0 0 40 40"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
+                                    onClick={(event) =>
+                                        onClickCategory(event, val)
+                                    }
                                 >
                                     <path
                                         d="M30.1949 15.9055L29.3394 7.77497C29.2394 6.82775 28.4422 6.11108 27.4894 6.11108H12.4838C11.5338 6.11108 10.7338 6.83053 10.6338 7.77497L9.78105 15.9055C9.18661 21.5555 13.2783 26.525 18.7727 27.1694V30.4083L14.8699 31.2861C14.2533 31.425 13.8172 31.9722 13.8172 32.6028C13.8172 33.35 14.4227 33.9527 15.1672 33.9527H24.8088C25.5561 33.9527 26.1588 33.3472 26.1588 32.6028C26.1588 31.9722 25.7199 31.425 25.1061 31.2861L21.2033 30.4083V27.1694C26.6977 26.5222 30.7894 21.5555 30.1949 15.9055Z"
@@ -196,7 +210,7 @@ export default function RightSection() {
             </div>
 
             <div
-                className="w-full p-4 bg-[#6e3bff] flex justify-center items-center text-white rounded-xl font-[Pretendard-Semibold]"
+                className="w-full p-4 bg-[#6e3bff] flex justify-center items-center text-white cursor-pointer rounded-xl font-[Pretendard-Semibold]"
                 onClick={onClickRecommend}
             >
                 추천받기
