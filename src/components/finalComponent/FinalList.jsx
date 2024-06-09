@@ -63,11 +63,12 @@ export default function FinalList() {
             {Object.keys(isSelect).map((val, idx) =>
                 isSelect[val] ? (
                     val === "식당" ? (
-                        <div key={idx} className="flex flex-col gap-4">
-                            <div
-                                className="flex items-center gap-1.5 pt-6 cursor-pointer"
-                                onClick={() => setFocus(val)}
-                            >
+                        <div
+                            key={idx}
+                            className="flex flex-col gap-4 cursor-pointer"
+                            onClick={() => setFocus(val)}
+                        >
+                            <div className="flex items-center gap-1.5 pt-6 ">
                                 <svg
                                     width="24"
                                     height="25"
@@ -215,11 +216,12 @@ export default function FinalList() {
                             </div>
                         </div>
                     ) : val === "카페" ? (
-                        <div key={idx} className="flex flex-col gap-4">
-                            <div
-                                className="flex items-center gap-1.5 pt-6 cursor-pointer"
-                                onClick={() => setFocus(val)}
-                            >
+                        <div
+                            key={idx}
+                            className="flex flex-col gap-4 cursor-pointer"
+                            onClick={() => setFocus(val)}
+                        >
+                            <div className="flex items-center gap-1.5 pt-6 ">
                                 <svg
                                     width="24"
                                     height="25"
@@ -352,11 +354,12 @@ export default function FinalList() {
                             </div>
                         </div>
                     ) : val === "술집" ? (
-                        <div key={idx} className="flex flex-col gap-4">
-                            <div
-                                className="flex items-center gap-1.5 pt-6 cursor-pointer"
-                                onClick={() => setFocus(val)}
-                            >
+                        <div
+                            key={idx}
+                            className="flex flex-col gap-4 cursor-pointer"
+                            onClick={() => setFocus(val)}
+                        >
+                            <div className="flex items-center gap-1.5 pt-6 ">
                                 <svg
                                     width="24"
                                     height="25"

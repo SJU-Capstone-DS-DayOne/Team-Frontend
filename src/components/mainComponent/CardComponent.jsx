@@ -3,13 +3,16 @@ import storeListSelect from "../../clients/ListSelect";
 import { useStore } from "zustand";
 import storeCategoryFocus from "../../clients/CategoryFocus";
 import usePaginationStore from "../../clients/UsePagination";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function CardComponent() {
     const { restaurantArrays, cafeArrays, barArrays } =
         useStore(storeListSelect);
     const { focus } = useStore(storeCategoryFocus);
     const { currentPage, onFirstPage } = useStore(usePaginationStore);
+    const [selectedArray, setSelectedArray] = useState([]);
+    const [chunkedArray, setChunkedArray] = useState([]);
+    const [array, setArray] = useState([]);
 
     const getArrayByFocus = () => {
         switch (focus) {
@@ -24,8 +27,6 @@ export default function CardComponent() {
         }
     };
 
-    const selectedArray = getArrayByFocus();
-
     const chunkArray = (array, size) => {
         const chunkedArr = [];
         for (let i = 0; i < array.length; i += size) {
@@ -34,27 +35,21 @@ export default function CardComponent() {
         return chunkedArr;
     };
 
-    const chunkedArray = chunkArray(selectedArray, 6);
-
     useEffect(() => {
         onFirstPage();
+        const selectedArray = getArrayByFocus();
+        setSelectedArray(selectedArray);
+        setChunkedArray(chunkArray(selectedArray, 6));
     }, [focus]);
 
+    useEffect(() => {
+        setArray(chunkedArray[currentPage - 1] || []);
+    }, [currentPage, chunkedArray]);
+
     return (
-        <div
-            className="relative z-0 w-[300%] flex items-center h-full  transition-transform duration-1000 shrink-0 gap-4"
-            style={{
-                transform: `translateX(-${currentPage * 33 - 33}%)`,
-            }}
-        >
-            {chunkedArray.map((chunk, index) => (
-                <div className="flex flex-wrap w-full gap-4" key={index}>
-                    {chunk.map((item) =>
-                        index === currentPage - 1 ? (
-                            <Card key={item.id} prop={item} />
-                        ) : null
-                    )}
-                </div>
+        <div className="relative z-0 flex flex-wrap items-center w-full h-full gap-4 mt-2">
+            {array.map((val) => (
+                <Card key={val.id} prop={val} />
             ))}
         </div>
     );
