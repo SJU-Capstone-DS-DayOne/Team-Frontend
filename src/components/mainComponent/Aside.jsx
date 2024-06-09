@@ -11,7 +11,7 @@ export default function Aside() {
 
             <SelectCategory />
 
-            <Link to="/Palette-FE/final" className="flex justify-end">
+            <Link to="/final" className="flex justify-end">
                 <div className="w-full bg-[#6e3bff] text-center text-white px-4 py-2.5 rounded-xl font-[Pretendard-SemiBold]">
                     선택 완료
                 </div>
