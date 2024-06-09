@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import img1 from "../../imgs/back.jpeg";
 import { getMainRestaurant } from "../../apis/getMainRestaurant";
 
 // const recommendList = [

@@ -13,14 +13,14 @@ export default function Header() {
     return (
         <div className="flex items-center justify-between w-full h-full bg-opacity-60 backdrop-blur-xl border-b-[1px] border-b-[#d9d9d9] px-24">
             <Link
-                to="/Palette-FE//main"
+                to="/Palette-FE/main"
                 className="font-[Pretendard-Bold] text-[#6E3Bff] text-[36px] cursor-pointer"
             >
                 Palette
             </Link>
 
             <Link
-                to="/Palette-FE//infor"
+                to="/Palette-FE/infor"
                 className="flex items-center gap-4 px-5 py-2 cursor-pointer xl:py-3"
             >
                 <div className="font-[Pretendard-SemiBold] text-[#606060]">
@@ -97,7 +97,7 @@ export default function Header() {
             </Link>
 
             <Link
-                to={"/Palette-FE//profile"}
+                to={"/Palette-FE/profile"}
                 className="flex gap-1 border-b-2 border-b-[#c1c1c1] cursor-pointer"
             >
                 <div className="text-[#6e3bff] font-[Pretendard-SemiBold] text-lg">

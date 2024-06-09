@@ -44,6 +44,10 @@ export default function Card(prop) {
         }
     };
 
+    const imageItem = prop.prop.rankedMenuResponseList.find(
+        (item) => item.imageUrl
+    );
+
     return (focus === "식당" && restaurantList.includes(prop.prop.name)) ||
         (focus === "카페" && cafeList.includes(prop.prop.name)) ||
         (focus === "술집" && barList.includes(prop.prop.name)) ? (
@@ -51,11 +55,11 @@ export default function Card(prop) {
             className="relative flex flex-col justify-center w-[16.4dvw] h-[21.32dvh] rounded-2xl xl:w-[16dvw] xl:h-[21.7dvw] cursor-pointer"
             onClick={onClickRemove}
         >
-            {prop.prop.rankedMenuResponseList[0].imageUrl ? (
+            {imageItem ? (
                 <img
-                    src={prop.prop.rankedMenuResponseList[0]?.imageUrl}
+                    src={imageItem.imageUrl}
                     alt={prop.prop.id}
-                    className="object-cover object-center w-full  h-[55%] rounded-t-2xl border-t-[3px] border-x-[3px] border-[#6e3bff]"
+                    className="object-cover object-center w-full h-[55%] rounded-t-2xl border-t-[3px] border-x-[3px] border-[#6e3bff]"
                 />
             ) : (
                 <div className="w-full h-[55%] rounded-t-2xl border-t-[3px] border-x-[3px] border-[#6e3bff] bg-[#E2E2E2] flex justify-center items-center">
@@ -171,15 +175,15 @@ export default function Card(prop) {
             onMouseLeave={() => setIsHover(false)}
             onClick={onClickDetailInfor}
         >
-            {prop.prop.rankedMenuResponseList[0].imageUrl ? (
+            {imageItem ? (
                 <img
-                    src={prop.prop.rankedMenuResponseList[0]?.imageUrl}
+                    src={imageItem.imageUrl}
                     alt={prop.prop.id}
-                    className="object-cover object-center w-full  h-[55%] rounded-t-2xl"
+                    className="object-cover object-center w-full h-[55%] rounded-t-2xl "
                 />
             ) : (
                 <div className="w-full h-[55%] rounded-t-2xl  bg-[#E2E2E2] flex justify-center items-center">
-                    <div className="font-[Pretendard-Bold] text-2xl text-[#6e3bff]">
+                    <div className="font-[Pretendard-Bold] text-xl text-[#6e3bff]">
                         Palette
                     </div>
                 </div>

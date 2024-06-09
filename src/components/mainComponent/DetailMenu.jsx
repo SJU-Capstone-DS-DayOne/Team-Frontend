@@ -70,7 +70,7 @@ export default function DetailMenu() {
                                 fill={currentPage === 1 ? "#c1c1c1" : "#6e3bff"}
                             />
                         </svg>
-                        <div className="text-[#6e3bff] mr-[2px]">
+                        <div className="text-[#c1c1c1] mr-[2px]">
                             {currentPage}
                         </div>
                         / {totalPage}
