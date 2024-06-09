@@ -106,7 +106,7 @@ export default function Category() {
                     </div>
                 ))}
             </div>
-            <Link to="/Palette-FE/main">
+            <Link to="/main">
                 <div
                     className="text-2xl font-semibold leading-9 tracking-tight text-center text-white bg-[#323232] w-20 h-14 flex justify-center items-center rounded-3xl cursor-pointer"
                     onClick={isScroll}

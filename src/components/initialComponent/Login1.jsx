@@ -163,7 +163,7 @@ export default function Login1() {
                         아직 회원이 아니신가요?
                     </div>
                     <Link
-                        to={"/Palette-FE/signup"}
+                        to={"/signup"}
                         className="text-[#6e3bff] font-[Pretendard-Bold]"
                     >
                         회원가입
