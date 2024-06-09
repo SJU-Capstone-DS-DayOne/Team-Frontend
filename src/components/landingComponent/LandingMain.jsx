@@ -79,6 +79,7 @@ export default function LandingMain() {
                             backgroundColor: access ? "#6e3bff" : "#ffffff",
                             outline: !access ? "1px solid #6e3bff" : null,
                             color: !access ? "#6e3bff" : "#ffffff",
+                            pointerEvents: access ? "auto" : "none",
                         }}
                         onClick={onClickRecommend}
                     >
