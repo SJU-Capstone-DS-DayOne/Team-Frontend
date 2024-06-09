@@ -10,7 +10,6 @@ export default function History() {
     useEffect(() => {
         const fetchData = async () => {
             const result = await getDateCourse();
-            console.log(result);
             setData(result);
         };
 

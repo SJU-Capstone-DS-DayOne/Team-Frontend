@@ -7,12 +7,13 @@ import storeListSelect from "../../clients/ListSelect";
 import barMarker from "../../imgs/Component 218.png";
 import restaurantMarker from "../../imgs/Component 128.png";
 import cafeMarker from "../../imgs/Component 328.png";
+import storePlaceTag from "../../clients/PlaceTagInfor";
 
 const { kakao } = window;
 
 export default function MapNavigation() {
     const mapRef = useRef(null);
-    // const { name, places } = useStore(storePlaceTag);
+    const { name, places } = useStore(storePlaceTag);
     const { focus } = useStore(storeCategoryFocus);
     const { restaurantArrays, cafeArrays, barArrays } =
         useStore(storeListSelect);
@@ -26,10 +27,7 @@ export default function MapNavigation() {
                 ? cafeArrays.find((items) => items.id === Number(id))
                 : focus === "술집" && id !== undefined
                 ? barArrays.find((items) => items.id === Number(id))
-                : {
-                      lat: 37.53848779208917,
-                      lng: 127.08273360675867,
-                  };
+                : places[name];
 
         const container = mapRef.current;
         const options = {

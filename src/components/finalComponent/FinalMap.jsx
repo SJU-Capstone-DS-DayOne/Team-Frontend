@@ -10,6 +10,7 @@ import cafePMarker from "../../imgs/Component 55.png";
 import storeCategory from "../../clients/CategoryState";
 import storeChooseFocus from "../../clients/ChooseFocus";
 import storeFinalSelect from "../../clients/FinalSelect";
+import storePlaceTag from "../../clients/PlaceTagInfor";
 
 const { kakao } = window;
 
@@ -25,12 +26,14 @@ export default function FinalMap() {
     } = useStore(storeListSelect);
     const { isSelect } = useStore(storeCategory);
     const { focus } = useStore(storeChooseFocus);
+    const { name, places } = useStore(storePlaceTag);
     const { finalRestaurant, finalCafe, finalBar } = useStore(storeFinalSelect);
 
     useEffect(() => {
+        let place = places[name];
         const container = mapRef.current;
         const options = {
-            center: new kakao.maps.LatLng(37.55058479747897, 127.0743161108723),
+            center: new kakao.maps.LatLng(place.lat, place.lng),
             level: 6,
         };
         const map = new kakao.maps.Map(container, options);

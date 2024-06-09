@@ -8,6 +8,7 @@ import cafePMarker from "../../imgs/Component 55.png";
 import { getCarDirection } from "../../apis/getCarDirection";
 import storeMinDuration from "../../clients/MinDuration";
 import storeMinDistance from "../../clients/MinDistance";
+import storePlaceTag from "../../clients/PlaceTagInfor";
 
 const { kakao } = window;
 export default function DateCourseMain() {
@@ -16,6 +17,7 @@ export default function DateCourseMain() {
         useStore(storeListSelect);
     const { setDuration } = useStore(storeMinDuration);
     const { setDistance } = useStore(storeMinDistance);
+    const { name, places } = useStore(storePlaceTag);
     const restaurantInfor = restaurantArrays.find(
         (item) => item.name === finalRestaurant
     );
@@ -25,12 +27,10 @@ export default function DateCourseMain() {
     const mapRef = useRef(null);
     useEffect(() => {
         async function initializeMap() {
+            let place = places[name];
             const container = mapRef.current;
             const options = {
-                center: new kakao.maps.LatLng(
-                    37.55058479747897,
-                    127.0743161108723
-                ),
+                center: new kakao.maps.LatLng(place.lat, place.lng),
                 level: 6,
             };
             const map = new kakao.maps.Map(container, options);

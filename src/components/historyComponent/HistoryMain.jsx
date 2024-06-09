@@ -10,7 +10,7 @@ export default function HistoryMain(prop) {
 
     const year = prop.prop.createdAt.slice(2, 4);
     const month = prop.prop.createdAt.slice(6, 7);
-    const day = prop.prop.createdAt.slice(9, 10);
+    const day = prop.prop.createdAt.slice(8, 10);
 
     const handleChange = (event, idx) => {
         setTextareaValue((prevState) => {

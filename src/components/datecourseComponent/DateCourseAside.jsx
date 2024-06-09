@@ -77,7 +77,7 @@ export default function DateCourseAside() {
                                         : "서울시 광진구 용마산로 12"}
                                 </div>
                             </div>
-                            <div className="flex gap-1">
+                            <div className="flex flex-wrap gap-1">
                                 {finalResaurantInfor.rankedMenuResponseList
                                     .sort((a, b) => a.ranking - b.ranking)
                                     .map((val, idx) => (
