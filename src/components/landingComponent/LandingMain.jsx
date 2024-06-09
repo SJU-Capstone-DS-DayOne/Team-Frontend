@@ -107,7 +107,7 @@ export default function LandingMain() {
                         </svg>
                     </div>
                 </div>
-                <div className="flex flex-col mx-24 mb-6 py-6 h-[52%] bg-[#f3f3f3] px-6 rounded-3xl">
+                <div className="flex flex-col mx-24 mb-6 py-4 h-[50%] bg-[#f3f3f3] px-6 rounded-3xl">
                     <div className="font-[Pretendard-Bold] text-xl text-[#606060] mb-4">
                         이런 식당은 어떠세요?
                     </div>

@@ -52,9 +52,9 @@ export default function History() {
                                 2,
                                 4
                             )}년 ${value.createdAt.slice(
-                                6,
+                                5,
                                 7
-                            )}월 ${value.createdAt.slice(9, 10)}일`}
+                            )}월 ${value.createdAt.slice(8, 10)}일`}
                         </div>
                         <div className="flex items-center gap-3">
                             <svg
