@@ -33,7 +33,7 @@ export default function LandingRecommend() {
                     <div className="text-[#323232] font-[Pretendard-Bold] text-lg mt-3">
                         {val.name}
                     </div>
-                    <div className="text-[#c1c1c1]">
+                    <div className="text-[#7f7f7f]">
                         {val.rankedMenuResponse.name}
                     </div>
                 </div>
