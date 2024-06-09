@@ -46,9 +46,7 @@ export default function RightSection() {
     return (
         <div className="flex flex-col w-[330px]">
             <div className="flex flex-col">
-                <div className="text-lg text-[#606060] mt-4 mb-3">
-                    어디로 가시나요?
-                </div>
+                <div className="text-lg text-[#606060] mt-4 mb-3">장소</div>
                 <div className="flex flex-wrap gap-2">
                     {names.map((val, idx) => (
                         <button
@@ -74,9 +72,7 @@ export default function RightSection() {
                 </div>
             </div>
             <div className="flex flex-col">
-                <div className="text-lg text-[#606060] mt-4 mb-3">
-                    무엇을 하실 예정이신가요?
-                </div>
+                <div className="text-lg text-[#606060] mt-4 mb-3">카테고리</div>
                 <div className="flex justify-between w-full">
                     {Object.keys(isSelect).map((val, idx) => (
                         <div
@@ -185,7 +181,7 @@ export default function RightSection() {
             </div>
 
             <div className="flex justify-center w-full font-semibold text-[#606060] mt-6 mb-4">
-                <div className="text-[#6E3BFF] font-bold">{name}</div>에서
+                <div className="text-[#6E3BFF] font-bold">{name}</div>의
                 {Object.keys(isSelect).map((val, idx) =>
                     isSelect[val] ? (
                         <div
@@ -196,7 +192,7 @@ export default function RightSection() {
                         </div>
                     ) : null
                 )}
-                가는 데이트 코스
+                에서 데이트를 하고 싶어!
             </div>
 
             <div

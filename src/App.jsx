@@ -14,6 +14,7 @@ import LandingMain from "./components/landingComponent/LandingMain";
 import DateCourse from "./pages/DateCourse";
 import History from "./pages/History";
 import "./index.css";
+import Test from "./pages/Test";
 
 export default function App() {
     return (
@@ -33,6 +34,7 @@ export default function App() {
                 <Route index element={<Article />} />
                 <Route path="/main/:id" element={<Detail />} />
             </Route>
+            <Route path="/test" element={<Test />} />
 
             <Route path="/final" element={<Final />} />
             <Route path="/datecourse" element={<DateCourse />} />

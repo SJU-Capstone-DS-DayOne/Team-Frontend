@@ -70,7 +70,7 @@ export default function LandingHeader() {
                     to={"/infor"}
                     className="text-[#c1c1c1] text-lg leading-normal flex pt-1 cursor-pointer"
                 >
-                    About us
+                    About Us
                 </Link>
             </div>
             <div

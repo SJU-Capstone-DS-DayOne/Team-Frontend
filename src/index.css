@@ -54,3 +54,17 @@
 .rotate:hover {
     transform: rotateY(180edg);
 }
+.loader-6 {
+    @apply relative inline-block w-12 h-12 rounded-full bg-purple-700;
+    animation: loader6-1 1.5s infinite linear;
+}
+.loader-6::before,
+.loader-6::after {
+    content: "";
+    @apply absolute top-1/2 left-1/2 bg-purple-500 bg-opacity-50 w-full h-full rounded-full;
+    margin: -25px 0 0 -25px;
+    animation: loader6-2 1.5s infinite linear;
+}
+.loader-6::after {
+    animation-direction: reverse;
+}

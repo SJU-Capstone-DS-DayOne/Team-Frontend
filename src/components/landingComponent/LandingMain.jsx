@@ -67,7 +67,7 @@ export default function LandingMain() {
             <div className="flex flex-col w-full h-[90dvh] mt-[10dvh] justify-around">
                 <div className="flex flex-col items-center w-full h-[45%] relative ">
                     <div className="text-xl text-[#606060] mt-10 mb-3">
-                        너와 나의 유일한 데이트 코스
+                        너와 내가 그리는 데이트 코스
                     </div>
                     <div className="text-8xl text-[#6E3BFF] font-[Pretendard-ExtraBold]">
                         Palette
