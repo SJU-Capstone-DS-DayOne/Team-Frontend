@@ -48,7 +48,7 @@ export default function FinalList() {
             barRestaurantId
         );
         if (result) {
-            navi("/Palette-FE/datecourse");
+            navi("/datecourse");
         }
     };
     useEffect(() => {

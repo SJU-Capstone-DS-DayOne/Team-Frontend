@@ -32,7 +32,7 @@ export default function Login1() {
 
         if (result) {
             console.log("login");
-            navi("/Palette-FE");
+            navi("/");
         } else {
             setFail(false);
         }

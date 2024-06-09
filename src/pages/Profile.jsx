@@ -27,7 +27,7 @@ export default function Profile() {
         const res = await deleteMember();
         if (res) {
             localStorage.removeItem("access");
-            navi("/Palette-FE/");
+            navi("/");
         }
     };
 
@@ -35,14 +35,14 @@ export default function Profile() {
         const result = await logout();
 
         if (result) {
-            navi("/Palette-FE/");
+            navi("/");
         }
     };
     const onCoupleDisconnect = async () => {
         const result = await deleteCoupleDisconnect();
         if (result) {
             setCoupleExist(false);
-            navi("/Palette-FE/");
+            navi("/");
         }
     };
 
@@ -130,7 +130,7 @@ export default function Profile() {
                         </button>
                     ) : (
                         <Link
-                            to={"/Palette-FE/coupleconnect"}
+                            to={"/coupleconnect"}
                             className="w-full bg-[#f3f3f3] flex justify-center items-center text-[#6e3bff] p-3 rounded-xl font-[Pretendard-SemiBold]"
                         >
                             커플 연동하기
