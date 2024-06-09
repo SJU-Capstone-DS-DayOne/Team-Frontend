@@ -102,7 +102,7 @@ export default function Header() {
             </Link>
 
             <Link
-                to={"/react-actions/profile"}
+                to={"/Palette-FE/profile"}
                 className="flex gap-1 border-b-2 border-b-[#c1c1c1] cursor-pointer"
             >
                 <div className="text-[#6e3bff] font-[Pretendard-SemiBold] text-lg">
