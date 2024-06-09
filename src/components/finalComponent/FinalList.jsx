@@ -58,7 +58,7 @@ export default function FinalList() {
     return (
         <div className="relative z-20 flex flex-col w-[28%] h-full py-6 ">
             <div className="text-[#6e3bff] font-[Pretendard-SemiBold]">
-                최종적으로 원하는 가게를 골라주세요!
+                최종 데이트 코스를 선택해주세요!
             </div>
             {Object.keys(isSelect).map((val, idx) =>
                 isSelect[val] ? (
@@ -145,7 +145,7 @@ export default function FinalList() {
                                             >
                                                 {item}
                                             </div>
-                                            <div className="flex gap-1">
+                                            <div className="flex flex-wrap gap-1">
                                                 {restaurantArrays
                                                     .find(
                                                         (items) =>
@@ -178,7 +178,7 @@ export default function FinalList() {
                                         <div className="text-white font-[#Pretendard-SemiBold] text-lg">
                                             {finalRestaurant}
                                         </div>
-                                        <div className="flex gap-1">
+                                        <div className="flex flex-wrap gap-1">
                                             {restaurantArrays
                                                 .find(
                                                     (items) =>
@@ -284,7 +284,7 @@ export default function FinalList() {
                                             >
                                                 {item}
                                             </div>
-                                            <div className="flex gap-1">
+                                            <div className="flex flex-wrap gap-1">
                                                 {cafeArrays
                                                     .find(
                                                         (items) =>
@@ -317,7 +317,7 @@ export default function FinalList() {
                                         <div className="text-white font-[#Pretendard-SemiBold] text-lg">
                                             {finalCafe}
                                         </div>
-                                        <div className="flex gap-1">
+                                        <div className="flex flex-wrap gap-1">
                                             {cafeArrays
                                                 .find(
                                                     (items) =>
@@ -416,7 +416,7 @@ export default function FinalList() {
                                             >
                                                 {item}
                                             </div>
-                                            <div className="flex gap-1">
+                                            <div className="flex flex-wrap gap-1">
                                                 {barArrays
                                                     .find(
                                                         (items) =>
@@ -449,7 +449,7 @@ export default function FinalList() {
                                         <div className="text-white font-[#Pretendard-SemiBold] text-lg">
                                             {finalBar}
                                         </div>
-                                        <div className="flex gap-1">
+                                        <div className="flex flex-wrap gap-1">
                                             {barArrays
                                                 .find(
                                                     (items) =>

@@ -275,7 +275,7 @@ export default function DateCourseAside() {
                     to={"/history"}
                     className="w-full rounded-xl p-4 bg-[#6e3bff] text-center"
                 >
-                    <div className="text-white">리뷰쓰러가기</div>
+                    <div className="text-white">리뷰 쓰러 가기</div>
                 </Link>
             </div>
         </div>

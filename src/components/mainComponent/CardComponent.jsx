@@ -10,7 +10,6 @@ export default function CardComponent() {
         useStore(storeListSelect);
     const { focus } = useStore(storeCategoryFocus);
     const { currentPage, onFirstPage } = useStore(usePaginationStore);
-    const [selectedArray, setSelectedArray] = useState([]);
     const [chunkedArray, setChunkedArray] = useState([]);
     const [array, setArray] = useState([]);
 
@@ -38,7 +37,7 @@ export default function CardComponent() {
     useEffect(() => {
         onFirstPage();
         const selectedArray = getArrayByFocus();
-        setSelectedArray(selectedArray);
+
         setChunkedArray(chunkArray(selectedArray, 6));
     }, [focus]);
 
