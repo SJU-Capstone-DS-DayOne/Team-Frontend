@@ -21,7 +21,7 @@ export const logout = async () => {
         return true; // 로그인 성공
     } catch (error) {
         console.error(error);
-        return false; // 로그인 실패
+        return true; // 로그인 실패
     }
 };
 //
