@@ -23,7 +23,7 @@ export const login = async (email, password) => {
             const { access } = response.headers;
 
             localStorage.setItem("access", access);
-            axios.defaults.headers["access"] = access;
+
             return true; // 로그인 성공
         }
     } catch (error) {

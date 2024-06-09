@@ -10,7 +10,7 @@ export default function DetailInfor() {
             <DetailImage />
             <div className="flex justify-between w-full gap-4">
                 <div className="flex flex-1 h-[44dvh] bg-white rounded-2xl flex-col py-4">
-                    <div className="px-6 pb-4 text-[#323232] font-[Pretendard-Bold] text-xl border-b-[1px] border-b-[#e2e2e2]">
+                    <div className="px-6 pb-4 text-[#6e3bff] font-[Pretendard-Bold] text-xl border-b-[1px] border-b-[#e2e2e2]">
                         가게 정보
                     </div>
                     <div className="flex flex-col gap-4 pt-4 pl-6">
@@ -79,27 +79,10 @@ export default function DetailInfor() {
                     </div>
                 </div>
                 <div className="flex flex-1 h-[44dvh] bg-white rounded-2xl flex-col py-4">
-                    <div className="px-6 pb-4 text-[#323232] font-[Pretendard-Bold] text-xl border-b-[1px] border-b-[#e2e2e2]">
+                    <div className="px-6 pb-4 text-[#6e3bff] font-[Pretendard-Bold] text-xl border-b-[1px] border-b-[#e2e2e2]">
                         AI 리뷰요약
                     </div>
                     <div className="flex flex-col pt-4 pl-6 pr-10">
-                        <div className="flex items-center gap-2">
-                            <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M8 0C3.58258 0 0 3.58258 0 8C0 12.4174 3.58258 16 8 16C12.4174 16 16 12.4174 16 8C16 3.58258 12.4174 0 8 0ZM2.99534 6.43112C2.99534 5.82197 3.49055 5.32676 4.0997 5.32676C4.70885 5.32676 5.20405 5.82197 5.20405 6.43112C5.20405 7.04026 4.70885 7.53547 4.0997 7.53547C3.49055 7.53547 2.99534 7.04026 2.99534 6.43112ZM11.2057 10.7828C10.2175 11.576 9.06491 11.9704 7.93426 11.9704C6.80362 11.9704 5.67297 11.5672 4.76582 10.7609C4.49411 10.5199 4.47001 10.1035 4.71104 9.83183C4.95207 9.56012 5.36839 9.53602 5.6401 9.77705C6.957 10.9471 8.90715 10.9384 10.384 9.75514C10.6667 9.52725 11.0808 9.57327 11.3087 9.85593C11.5366 10.1386 11.4906 10.5527 11.2079 10.7806L11.2057 10.7828ZM11.9003 7.53547C11.2912 7.53547 10.7959 7.04026 10.7959 6.43112C10.7959 5.82197 11.2912 5.32676 11.9003 5.32676C12.5094 5.32676 13.0047 5.82197 13.0047 6.43112C13.0047 7.04026 12.5094 7.53547 11.9003 7.53547Z"
-                                    fill="#6E3BFF"
-                                />
-                            </svg>
-                            <div className="text-[#6e3bff] text-lg font-[Pretendard-SemiBold]">
-                                Good 리뷰
-                            </div>
-                        </div>
                         <div className="text-[#323232] ">
                             {detailInfor.summary}
                         </div>

@@ -1,9 +1,15 @@
 import axios from "axios";
 
 export const getAi = async () => {
+    const access = localStorage.getItem("access");
     try {
         const response = await axios.get(
-            `${import.meta.env.VITE_REACT_APP_AI_BASE_URL}/recommend/couple`
+            `${import.meta.env.VITE_REACT_APP_AI_BASE_URL}/recommend/couple`,
+            {
+                headers: {
+                    Access: access,
+                },
+            }
         );
 
         if (response.status === 200) {

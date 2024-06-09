@@ -16,11 +16,15 @@ export default function Card(prop) {
         restaurantList,
         cafeList,
         barList,
+        addRestaurant,
+        addCafe,
+        addBar,
         removeRestaurant,
         removeCafe,
         removeBar,
     } = useStore(storeListSelect);
     const { focus } = useStore(storeCategoryFocus);
+
     const navi = useNavigate();
     const modifiedSummary = prop.prop.summary
         .replace(/[.,!?]\s*/g, "$&\n")
@@ -41,6 +45,16 @@ export default function Card(prop) {
             removeCafe(prop.prop.name);
         } else if (focus === "술집") {
             removeBar(prop.prop.name);
+        }
+    };
+    const onClickAdd = (event) => {
+        event.stopPropagation();
+        if (focus === "식당") {
+            addRestaurant(prop.prop.name);
+        } else if (focus === "카페") {
+            addCafe(prop.prop.name);
+        } else if (focus === "술집") {
+            addBar(prop.prop.name);
         }
     };
 
@@ -190,11 +204,12 @@ export default function Card(prop) {
             )}
             {/* hover summary */}
             <div
-                className="absolute w-full h-[55%]  top-0 rounded-t-2xl backdrop-blur-md bg-[#606060] bg-opacity-60 border-t-[3px] border-x-[3px] flex items-center justify-center"
+                className="absolute w-full h-[55%]  top-0 rounded-t-2xl backdrop-blur-md bg-[#606060] bg-opacity-60 border-t-[3px] border-x-[3px] flex items-center justify-center duration-500"
                 style={{
                     opacity: isHover ? "1" : "0",
                     visibility: isHover ? "visible" : "hidden",
-                    transition: "opacity 0.5s ease, visibility 0.5s ease",
+                    transition:
+                        "opacity 0.5s ease, visibility 0.5s ease, border-color 0.5s ease",
                     borderColor: isHover ? "#6E3BFF" : "transparent",
                 }}
             >
@@ -204,12 +219,13 @@ export default function Card(prop) {
                     viewBox="0 0 70 70"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="absolute top-0 right-0"
+                    className="absolute top-0 right-0 z-20"
                     style={{
                         opacity: isHover ? "1" : "0",
                         visibility: isHover ? "visible" : "hidden",
                         transition: "opacity 0.5s ease, visibility 0.5s ease",
                     }}
+                    onClick={onClickAdd}
                 >
                     <g filter="url(#filter0_d_354_1078)">
                         <circle cx="35" cy="31" r="20" fill="white" />

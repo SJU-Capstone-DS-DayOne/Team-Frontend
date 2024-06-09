@@ -1,23 +1,40 @@
 import axios from "axios";
-// import { postCoupleCode } from "./postCoupleCode";
+import { getNewAccessToken } from "./vaildAccessToken";
 
 export const getCoupleCode = async () => {
-    // const memberId = localStorage.getItem("memberId");
+    axios.defaults.withCredentials = true;
+    async function makeRequest() {
+        let access = localStorage.getItem("access");
+        try {
+            const response = await axios.get(
+                `https://${
+                    import.meta.env.VITE_REACT_APP_BASE_URL
+                }/couple-codes`,
+                {
+                    headers: {
+                        Access: access,
+                    },
+                }
+            );
 
-    try {
-        const response = await axios.get(
-            `https://${import.meta.env.VITE_REACT_APP_BASE_URL}/couple-codes`
-        );
+            if (response.status === 200) {
+                const { code } = response.data;
 
-        if (response.status === 200) {
-            const { code } = response.data;
-
-            return code;
+                return code;
+            }
+        } catch (error) {
+            console.error(error);
+            if (error.response.status === 401) {
+                localStorage.removeItem("access");
+                const newAccessToken = await getNewAccessToken();
+                if (newAccessToken) {
+                    return makeRequest(); // Retry the original request
+                }
+            }
+            console.error(error);
+            throw error;
         }
-    } catch (error) {
-        console.error(error);
-
-        if (error.request.status === 403) console.log(123);
-        return false;
     }
+
+    return makeRequest();
 };

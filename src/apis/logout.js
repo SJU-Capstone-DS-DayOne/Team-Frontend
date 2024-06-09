@@ -21,6 +21,7 @@ export const logout = async () => {
         return true; // 로그인 성공
     } catch (error) {
         console.error(error);
+        localStorage.removeItem("access");
         return true; // 로그인 실패
     }
 };
