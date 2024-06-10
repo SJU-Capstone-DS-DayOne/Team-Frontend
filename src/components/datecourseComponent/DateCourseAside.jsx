@@ -4,6 +4,7 @@ import storeListSelect from "../../clients/ListSelect";
 import storeMinDistance from "../../clients/MinDistance";
 import storeMinDuration from "../../clients/MinDuration";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function DateCourseAside() {
     const { finalRestaurant, finalCafe, finalBar } = useStore(storeFinalSelect);
@@ -14,8 +15,13 @@ export default function DateCourseAside() {
     );
     const finalCafeInfor = cafeArrays.find((items) => items.name === finalCafe);
     const finalBarInfor = barArrays.find((items) => items.name === finalBar);
-    const { distance } = useStore(storeMinDistance);
-    const { duration } = useStore(storeMinDuration);
+    const { distance, onClearDistance } = useStore(storeMinDistance);
+    const { duration, onClearDuration } = useStore(storeMinDuration);
+
+    useEffect(() => {
+        onClearDistance();
+        onClearDuration();
+    }, []);
 
     return (
         <div className="relative z-20 flex flex-col w-[28%] h-full items-center">
@@ -58,7 +64,7 @@ export default function DateCourseAside() {
                             <div className="font-[Pretendard-Bold] text-lg text-[#6e3bff]">
                                 {finalResaurantInfor.name}
                             </div>
-                            <div className="flex gap-[2px]">
+                            <div className="flex gap-[2px] flex-wrap">
                                 <svg
                                     width="20"
                                     height="20"
