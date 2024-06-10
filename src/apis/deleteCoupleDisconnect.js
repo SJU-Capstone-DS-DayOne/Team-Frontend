@@ -16,7 +16,7 @@ export const deleteCoupleDisconnect = async () => {
 
             if (response.status === 200) {
                 console.log(response);
-                return response.data;
+                return true;
             }
         } catch (error) {
             console.error(error);
