@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useStore } from "zustand";
 import storeColdStartInfor from "../../clients/ColdStartInfor";
 import { useNavigate } from "react-router-dom";
@@ -99,6 +99,7 @@ import storeLoading from "../../clients/isLoading";
 
 export default function RecommendColdstart() {
     const [idList, setIdList] = useState([]);
+    const [parentWidth, setParentWidth] = useState(0);
     const { loading, setLoading } = useStore(storeLoading);
     const parentRef = useRef(null);
     const { infor } = useStore(storeColdStartInfor);
@@ -106,6 +107,12 @@ export default function RecommendColdstart() {
         useStore(storeDepositUserInfor);
 
     const navi = useNavigate();
+
+    useEffect(() => {
+        if (parentRef.current) {
+            setParentWidth(parentRef.current.offsetWidth); // width 값 설정
+        }
+    }, []);
 
     const togglePicks = (id) => {
         console.log(id);
@@ -138,7 +145,7 @@ export default function RecommendColdstart() {
     return (
         <>
             {loading ? (
-                <div className="flex items-center justify-center ">
+                <div className="flex flex-wrap items-center justify-center">
                     <div className={`${style.loader_6} ${style.loader}`}></div>
                 </div>
             ) : (
@@ -165,8 +172,10 @@ export default function RecommendColdstart() {
                                     alt={val.id}
                                     className="object-cover object-center rounded-3xl"
                                     style={{
-                                        width: "236.6px",
-                                        height: "378.56px",
+                                        width: `${parentWidth / 5 - 52}px`,
+                                        height: `${
+                                            (parentWidth / 5 - 52) * 1.6
+                                        }px`,
                                         outline: idList.includes(val.id)
                                             ? "5px solid #6e3bff"
                                             : "0px",

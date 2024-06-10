@@ -98,7 +98,7 @@ export default function DetailMenu() {
                                 className="text-[#6e3bff] cursor-pointer"
                                 onClick={() => setArrow(!arrow)}
                             >
-                                {reviews ? "최근순" : "유사도순"}
+                                {reviews ? "최신순" : "유사도순"}
                             </div>
                             <svg
                                 width="16"
@@ -122,7 +122,7 @@ export default function DetailMenu() {
                                         className="border-b-[1px] border-b-[#e2e2e2] py-1 text-[#606060] cursor-pointer text-center"
                                         onClick={onClickRecent}
                                     >
-                                        최근순
+                                        최신순
                                     </div>
                                     <div
                                         className="py-1 text-[#606060] cursor-pointer text-center"
