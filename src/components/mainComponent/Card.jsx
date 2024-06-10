@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getRestaurantDetail } from "../../apis/getRestaurantDetail";
 import { useStore } from "zustand";
@@ -13,6 +13,7 @@ import { getReviewSort } from "../../apis/getReviewSort";
 export default function Card(prop) {
     console.log(prop);
     const [isHover, setIsHover] = useState(false);
+    const [imageItem, setImageItem] = useState(null);
     const { setDetailInfor } = useStore(storeDetailInfor);
     const { setDetailReview, setSortDetailReview } =
         useStore(storeDetailReview);
@@ -103,9 +104,13 @@ export default function Card(prop) {
         }
     };
 
-    const imageItem = prop.prop.rankedMenuResponseList.find(
-        (item) => item.imageUrl
-    );
+    useEffect(() => {
+        // 컴포넌트가 마운트될 때 이미지 설정
+        const initialImageItem = prop.prop.rankedMenuResponseList.find(
+            (item) => item.imageUrl
+        );
+        setImageItem(initialImageItem);
+    }, [prop.prop.rankedMenuResponseList]);
 
     return (focus === "식당" && restaurantList.includes(prop.prop.name)) ||
         (focus === "카페" && cafeList.includes(prop.prop.name)) ||
