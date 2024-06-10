@@ -29,7 +29,7 @@ export default function LandingMain() {
 
     const onClickRecommend = () => {
         if (!access) navi("/login");
-        if (coupleExist) navi("/infor");
+        else if (coupleExist) navi("/infor");
         else setCoupleConnect(true);
     };
     const onClickBack = () => {
