@@ -364,9 +364,11 @@ export default function Card(prop) {
                                 : prop.prop.name}
                         </div>
                         <div className="flex gap-1">
-                            <div className="text-sm">
-                                #{prop.prop.categoryResponseList[0].name}
-                            </div>
+                            {prop.prop.categoryResponseList.map((val) => (
+                                <div className="text-sm" key={val.id}>
+                                    #{val.name}
+                                </div>
+                            ))}
                         </div>
                     </div>
                     <div className="text-[#c1c1c1] font-[Pretendard-SemiBold] text-sm">
