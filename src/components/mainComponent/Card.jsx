@@ -117,8 +117,8 @@ export default function Card(prop) {
         <div
             className="relative flex flex-col justify-center cursor-pointer rounded-2xl"
             style={{
-                width: `${prop.width / 3 - 52}px`,
-                height: `${(prop.width / 3 - 52) * 1.6}px`,
+                width: `${prop.width / 3 - 16}px`,
+                height: `${(prop.width / 3 - 16) * 1.36}px`,
             }}
             onClick={onClickRemove}
         >
@@ -238,8 +238,8 @@ export default function Card(prop) {
         <div
             className="relative flex flex-col justify-center"
             style={{
-                width: `${prop.width / 3 - 12}px`,
-                height: `${(prop.width / 3 - 12) * 1.36}px`,
+                width: `${prop.width / 3 - 16}px`,
+                height: `${(prop.width / 3 - 16) * 1.36}px`,
             }}
             key={prop.prop.id}
             onMouseEnter={() => setIsHover(true)}
