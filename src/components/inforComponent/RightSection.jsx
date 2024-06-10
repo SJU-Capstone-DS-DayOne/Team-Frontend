@@ -5,8 +5,10 @@ import { getTypeInformation } from "../../apis/getTypeInformation";
 // import { getAi } from "../../apis/getAi";
 import storeListSelect from "../../clients/ListSelect";
 import { useNavigate } from "react-router-dom";
+import storeInforLoading from "../../clients/InforisLoading";
 
 export default function RightSection() {
+    const { setLoading } = useStore(storeInforLoading);
     const { name, names, onClick } = useStore(storePlaceTag);
     const { onChange, isSelect } = useStore(storeCategory);
     const { setRestaurantArrays, setCafeArrays, setBarArrays } =
@@ -23,23 +25,30 @@ export default function RightSection() {
     };
 
     const onClickRecommend = async () => {
-        const result = await getTypeInformation(name, isSelect);
-        Object.keys(isSelect).map((val) => {
-            if (isSelect[val]) {
-                if (val === "식당") {
-                    setRestaurantArrays(
-                        result.data.rstRestaurantOverviewResponseList
-                    );
-                } else if (val === "카페") {
-                    setCafeArrays(
-                        result.data.cafeRestaurantOverviewResponseList
-                    );
-                } else {
-                    setBarArrays(result.data.barRestaurantOverviewResponseList);
+        setLoading();
+        setTimeout(async () => {
+            const result = await getTypeInformation(name, isSelect);
+            Object.keys(isSelect).map((val) => {
+                if (isSelect[val]) {
+                    if (val === "식당") {
+                        setRestaurantArrays(
+                            result.data.rstRestaurantOverviewResponseList
+                        );
+                    } else if (val === "카페") {
+                        setCafeArrays(
+                            result.data.cafeRestaurantOverviewResponseList
+                        );
+                    } else {
+                        setBarArrays(
+                            result.data.barRestaurantOverviewResponseList
+                        );
+                    }
                 }
-            }
-        });
-        navi("/main");
+            });
+            setLoading();
+            navi("/main");
+        }, 2000);
+
         // const result = await getAi();
         // console.log(result);
     };
