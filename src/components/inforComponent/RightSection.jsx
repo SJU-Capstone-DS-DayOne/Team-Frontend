@@ -55,6 +55,7 @@ export default function RightSection() {
                             style={{
                                 backgroundColor:
                                     val === name ? "#6e3bff" : "#f3f3f3",
+                                pointerEvents: idx <= 2 ? "auto" : "none",
                             }}
                             key={idx}
                             onClick={onClick}
@@ -63,7 +64,6 @@ export default function RightSection() {
                                 className="text-center "
                                 style={{
                                     color: val === name ? "#ffffff" : "#606060",
-                                    pointerEvents: idx <= 2 ? "auto" : "none",
                                 }}
                             >
                                 {val}
