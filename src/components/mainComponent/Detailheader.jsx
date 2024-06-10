@@ -5,6 +5,7 @@ import storeListSelect from "../../clients/ListSelect";
 import storeCategoryFocus from "../../clients/CategoryFocus";
 import { useEffect, useState } from "react";
 import storeDetailInfor from "../../clients/DetailInfor";
+import storeCategory from "../../clients/CategoryState";
 
 export default function Detailheader() {
     const [select, setSelect] = useState(false);
@@ -23,6 +24,7 @@ export default function Detailheader() {
     } = useStore(storeListSelect);
     const { focus, setFocus } = useStore(storeCategoryFocus);
     const { detailInfor } = useStore(storeDetailInfor);
+    const { isSelect } = useStore(storeCategory);
     useEffect(() => {
         if (restaurantList.includes(detailInfor.name)) {
             setSelect(true);
@@ -38,11 +40,11 @@ export default function Detailheader() {
                 if (restaurantList.length < 3) {
                     addRestaurant(detailInfor.name);
                     if (restaurantList.length === 2) {
-                        if (cafeList.length < 3) {
+                        if (cafeList.length < 3 && isSelect["카페"]) {
                             setFocus("카페");
                             navigate("/main");
                         } else {
-                            if (barList.length < 3) {
+                            if (barList.length < 3 && isSelect["술집"]) {
                                 setFocus("술집");
                                 navigate("/main");
                             } else {
@@ -65,7 +67,7 @@ export default function Detailheader() {
                             setFocus("식당");
                             navigate("/main");
                         } else {
-                            if (barList.length < 3) {
+                            if (barList.length < 3 && isSelect["술집"]) {
                                 setFocus("술집");
                                 navigate("/main");
                             } else {
@@ -88,7 +90,7 @@ export default function Detailheader() {
                             setFocus("식당");
                             navigate("/main");
                         } else {
-                            if (cafeList.length < 3) {
+                            if (cafeList.length < 3 && isSelect["카페"]) {
                                 setFocus("카페");
                                 navigate("/main");
                             } else {

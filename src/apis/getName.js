@@ -17,7 +17,6 @@ export async function getName() {
             );
 
             if (response.status === 200) {
-                console.log(response);
                 return response.data;
             }
         } catch (error) {

@@ -16,7 +16,7 @@ export default function RightSection() {
 
     const onClickCategory = (event, val) => {
         event.stopPropagation();
-        console.log(val);
+
         if (val !== undefined) {
             onChange(val);
         }

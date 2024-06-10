@@ -7,6 +7,7 @@ import { getRestaurantReview } from "../../apis/getRestaurantReview";
 import storeDetailReview from "../../clients/DetailReview";
 import storeListSelect from "../../clients/ListSelect";
 import storeCategoryFocus from "../../clients/CategoryFocus";
+import storeCategory from "../../clients/CategoryState";
 
 export default function Card(prop) {
     const [isHover, setIsHover] = useState(false);
@@ -23,7 +24,8 @@ export default function Card(prop) {
         removeCafe,
         removeBar,
     } = useStore(storeListSelect);
-    const { focus } = useStore(storeCategoryFocus);
+    const { focus, setFocus } = useStore(storeCategoryFocus);
+    const { isSelect } = useStore(storeCategory);
 
     const navi = useNavigate();
     const modifiedSummary = prop.prop.summary
@@ -50,11 +52,50 @@ export default function Card(prop) {
     const onClickAdd = (event) => {
         event.stopPropagation();
         if (focus === "식당") {
-            addRestaurant(prop.prop.name);
+            if (restaurantList.length < 3) {
+                addRestaurant(prop.prop.name);
+                if (restaurantList.length === 2) {
+                    if (cafeList.length < 3 && isSelect["카페"]) {
+                        setFocus("카페");
+                    } else {
+                        if (barList.length < 3 && isSelect["술집"]) {
+                            setFocus("술집");
+                        } else {
+                            navi("/final");
+                        }
+                    }
+                }
+            }
         } else if (focus === "카페") {
-            addCafe(prop.prop.name);
+            if (cafeList.length < 3) {
+                addCafe(prop.prop.name);
+                if (cafeList.length === 2) {
+                    if (restaurantList.length < 3) {
+                        setFocus("식당");
+                    } else {
+                        if (barList.length < 3 && isSelect["술집"]) {
+                            setFocus("술집");
+                        } else {
+                            navi("/final");
+                        }
+                    }
+                }
+            }
         } else if (focus === "술집") {
-            addBar(prop.prop.name);
+            if (barList.length < 3) {
+                addBar(prop.prop.name);
+                if (barList.length === 2) {
+                    if (restaurantList.length < 3) {
+                        setFocus("식당");
+                    } else {
+                        if (cafeList.length < 3 && isSelect["카페"]) {
+                            setFocus("카페");
+                        } else {
+                            navi("/final");
+                        }
+                    }
+                }
+            }
         }
     };
 
@@ -314,7 +355,7 @@ export default function Card(prop) {
                             ))}
                         </div>
                     </div>
-                    <div className="text-[#c1c1c1] font-[Pretendard-SemiBold] text-xs mt-1">
+                    <div className="text-[#c1c1c1] font-[Pretendard-SemiBold] text-sm">
                         대표 메뉴
                     </div>
                 </div>

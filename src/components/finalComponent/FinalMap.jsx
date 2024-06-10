@@ -146,6 +146,7 @@ export default function FinalMap() {
 
         if (finalBar) {
             const bar = barArrays.find((item) => item.name === finalBar);
+            console.log(bar);
             const { lat, lng } = bar;
             const position = new kakao.maps.LatLng(lat, lng);
             const markerImage = new kakao.maps.MarkerImage(

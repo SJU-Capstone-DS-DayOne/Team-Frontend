@@ -135,7 +135,7 @@ export default function FinalList() {
                                             }
                                         >
                                             <div
-                                                className="font-[Pretendard-SemiBold] text-lg"
+                                                className="font-[Pretendard-SemiBold] text-base"
                                                 style={{
                                                     color:
                                                         finalRestaurant === item
@@ -274,7 +274,7 @@ export default function FinalList() {
                                             onClick={() => setFinalCafe(item)}
                                         >
                                             <div
-                                                className="font-[Pretendard-SemiBold] text-lg"
+                                                className="font-[Pretendard-SemiBold] text-base"
                                                 style={{
                                                     color:
                                                         finalCafe === item
@@ -406,7 +406,7 @@ export default function FinalList() {
                                             onClick={() => setFinalBar(item)}
                                         >
                                             <div
-                                                className="font-[Pretendard-SemiBold] text-lg"
+                                                className="font-[Pretendard-SemiBold] text-base"
                                                 style={{
                                                     color:
                                                         finalBar === item

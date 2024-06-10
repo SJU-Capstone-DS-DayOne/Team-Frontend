@@ -14,7 +14,6 @@ export async function getNewAccessToken() {
         );
 
         if (response.status === 200) {
-            console.log(response);
             const { access } = response.headers;
 
             localStorage.setItem("access", access);
