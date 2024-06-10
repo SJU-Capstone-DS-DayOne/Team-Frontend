@@ -7,10 +7,14 @@ import { useStore } from "zustand";
 import storeCoupleExist from "../../clients/CoupleExist";
 
 export default function LandingMain() {
-    const access = localStorage.getItem("access");
+    const [access, setAccess] = useState();
     const [coupleConnect, setCoupleConnect] = useState(false);
     const { coupleExist, setCoupleExist } = useStore(storeCoupleExist);
     const navi = useNavigate();
+
+    useEffect(() => {
+        setAccess(localStorage.getItem("access"));
+    }, []);
 
     useEffect(() => {
         const isCouples = async () => {
@@ -24,6 +28,7 @@ export default function LandingMain() {
     }, [access]);
 
     const onClickRecommend = () => {
+        if (!access) navi("/login");
         if (coupleExist) navi("/infor");
         else setCoupleConnect(true);
     };
@@ -79,7 +84,6 @@ export default function LandingMain() {
                             backgroundColor: access ? "#6e3bff" : "#ffffff",
                             outline: !access ? "1px solid #6e3bff" : null,
                             color: !access ? "#6e3bff" : "#ffffff",
-                            pointerEvents: access ? "auto" : "none",
                         }}
                         onClick={onClickRecommend}
                     >
