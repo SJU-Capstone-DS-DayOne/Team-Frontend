@@ -151,7 +151,7 @@ export default function RecommendColdstart() {
             ) : (
                 <>
                     <div
-                        className="flex flex-wrap w-full gap-4 px-24"
+                        className="flex flex-wrap w-full gap-4 px-24 mb-20"
                         ref={parentRef}
                     >
                         {infor.map((val) => (
