@@ -136,8 +136,8 @@ export default function Card(prop) {
                 <div className="flex-1 border-b-[1px] border-b-[#f3f3f3] flex flex-col">
                     <div className="flex items-center justify-between">
                         <div className="font-[Pretendard-SemiBold] text-[#323232]">
-                            {prop.prop.name.length > 7
-                                ? prop.prop.name.slice(0, 6)
+                            {prop.prop.name.length > 10
+                                ? prop.prop.name.slice(0, 10)
                                 : prop.prop.name}
                         </div>
                         <div className="flex gap-1">
@@ -352,16 +352,14 @@ export default function Card(prop) {
                 <div className="flex-1 border-b-[1px] border-b-[#f3f3f3] flex flex-col">
                     <div className="flex items-center justify-between">
                         <div className="font-[Pretendard-SemiBold] text-[#323232]">
-                            {prop.prop.name.length > 7
-                                ? prop.prop.name.slice(0, 6)
+                            {prop.prop.name.length > 10
+                                ? prop.prop.name.slice(0, 10)
                                 : prop.prop.name}
                         </div>
                         <div className="flex gap-1">
-                            {prop.prop.categoryResponseList.map((val) => (
-                                <div className="text-sm" key={val.id}>
-                                    #{val.name}
-                                </div>
-                            ))}
+                            <div className="text-sm">
+                                #{prop.prop.categoryResponseList[0].name}
+                            </div>
                         </div>
                     </div>
                     <div className="text-[#c1c1c1] font-[Pretendard-SemiBold] text-sm">
