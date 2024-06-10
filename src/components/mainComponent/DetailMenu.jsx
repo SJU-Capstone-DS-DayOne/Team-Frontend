@@ -2,14 +2,16 @@ import { useStore } from "zustand";
 import storeDetailInfor from "../../clients/DetailInfor";
 import storeDetailReview from "../../clients/DetailReview.js";
 import storeReviewPagination from "../../clients/ReviewPagination.js";
+import { useParams } from "react-router-dom";
+import { getReviewSort } from "../../apis/getReviewSort.js";
 
 export default function DetailMenu() {
     const { detailInfor } = useStore(storeDetailInfor);
     const { detailReview, setDetailReview } = useStore(storeDetailReview);
-    console.log(detailReview);
     const { currentPage, totalPage, nextPage, prevPage } = useStore(
         storeReviewPagination
     );
+    const { id } = useParams();
 
     const sortedMenu = detailInfor.menuResponseList
         .sort((a, b) => {
@@ -19,9 +21,10 @@ export default function DetailMenu() {
         })
         .slice(0, 9);
 
-    // const sortReview = async() => {
-    //     const res = await
-    // }
+    const sortReview = async () => {
+        const result = await getReviewSort(id);
+        setDetailReview(result);
+    };
 
     return (
         <div className="flex w-full max-h-full gap-4 mt-4 overflow-hidden">
@@ -68,7 +71,10 @@ export default function DetailMenu() {
                         <div className="text-[#323232] font-[Pretendard-Bold] text-xl">
                             리뷰
                         </div>
-                        <div className="p-2 text-center text-white bg-[#6e3bff] cursor-pointer rounded-xl">
+                        <div
+                            className="p-2 text-center text-white bg-[#6e3bff] cursor-pointer rounded-xl"
+                            onClick={sortReview}
+                        >
                             정렬
                         </div>
                     </div>

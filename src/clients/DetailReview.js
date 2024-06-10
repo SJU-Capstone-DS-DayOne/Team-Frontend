@@ -11,6 +11,8 @@ function chunkArray(array, chunkSize) {
 const storeDetailReview = create((set) => ({
     detailReview: [],
     setDetailReview: (val) => set({ detailReview: chunkArray(val, 5) }),
+    sortDetailReview: [],
+    // setSortDetailReview
 }));
 
 export default storeDetailReview;
