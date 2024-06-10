@@ -239,7 +239,7 @@ export default function Card(prop) {
             className="relative flex flex-col justify-center"
             style={{
                 width: `${prop.width / 3 - 12}px`,
-                height: `${(prop.width / 3 - 12) * 1.38}px`,
+                height: `${(prop.width / 3 - 12) * 1.36}px`,
             }}
             key={prop.prop.id}
             onMouseEnter={() => setIsHover(true)}
