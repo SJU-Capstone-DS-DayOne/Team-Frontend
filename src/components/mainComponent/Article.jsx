@@ -94,7 +94,7 @@ export default function Article() {
                             fill={currentPage === 1 ? "#c1c1c1" : "#6e3bff"}
                         />
                     </svg>
-                    <div className="text-[#c1c1c1] text-xl xl:text-2xl">
+                    <div className="text-[#606060] text-lg ">
                         {`${currentPage} / 3`}
                     </div>
                     <svg

@@ -2,16 +2,16 @@ import { useStore } from "zustand";
 import storeDetailInfor from "../../clients/DetailInfor";
 import storeDetailReview from "../../clients/DetailReview.js";
 import storeReviewPagination from "../../clients/ReviewPagination.js";
-import { useParams } from "react-router-dom";
-import { getReviewSort } from "../../apis/getReviewSort.js";
+import { useState } from "react";
 
 export default function DetailMenu() {
+    const [reviews, setReivews] = useState(true);
+    const [arrow, setArrow] = useState(false);
     const { detailInfor } = useStore(storeDetailInfor);
-    const { detailReview, setDetailReview } = useStore(storeDetailReview);
+    const { detailReview, sortDetailReview } = useStore(storeDetailReview);
     const { currentPage, totalPage, nextPage, prevPage } = useStore(
         storeReviewPagination
     );
-    const { id } = useParams();
 
     const sortedMenu = detailInfor.menuResponseList
         .sort((a, b) => {
@@ -21,15 +21,19 @@ export default function DetailMenu() {
         })
         .slice(0, 9);
 
-    const sortReview = async () => {
-        const result = await getReviewSort(id);
-        setDetailReview(result);
+    const onClickRecent = () => {
+        setReivews(true);
+        setArrow(false);
     };
 
+    const onClickRecommend = () => {
+        setReivews(false);
+        setArrow(false);
+    };
     return (
         <div className="flex w-full max-h-full gap-4 mt-4 overflow-hidden">
             <div className="flex flex-1 bg-white w-full h-[76dvh] rounded-2xl flex-col py-4">
-                <div className="px-6 pb-4 text-[#323232] font-[Pretendard-Bold] text-xl border-b-[1px] border-b-[#e2e2e2]">
+                <div className="px-6 pb-4 text-[#6e3bff] font-[Pretendard-Bold] text-xl border-b-[1px] border-b-[#e2e2e2]">
                     메뉴
                 </div>
 
@@ -67,18 +71,52 @@ export default function DetailMenu() {
             </div>
             <div className="flex flex-1 bg-white w-full h-[76dvh] rounded-2xl flex-col py-4">
                 <div className="flex items-center justify-between border-b-[1px] border-b-[#e2e2e2] pl-6 pr-4 pb-4 ">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-3">
                         <div className="text-[#323232] font-[Pretendard-Bold] text-xl">
                             리뷰
                         </div>
-                        <div
-                            className="p-2 text-center text-white bg-[#6e3bff] cursor-pointer rounded-xl"
-                            onClick={sortReview}
-                        >
-                            정렬
+                        <div className="flex items-center gap-0.5 relative">
+                            <div
+                                className="text-[#6e3bff] cursor-pointer"
+                                onClick={() => setArrow(!arrow)}
+                            >
+                                {reviews ? "최근순" : "유사도순"}
+                            </div>
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="cursor-pointer"
+                                onClick={() => setArrow(!arrow)}
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    clipRule="evenodd"
+                                    d="M2.78439 5.15633C3.06624 4.8528 3.54079 4.83522 3.84433 5.11707L8.00065 8.97652L12.157 5.11707C12.4605 4.83522 12.9351 4.85279 13.2169 5.15633C13.4988 5.45986 13.4812 5.93441 13.1777 6.21626L8.51099 10.5496C8.22323 10.8168 7.77808 10.8168 7.49032 10.5496L2.82365 6.21626C2.52012 5.93441 2.50254 5.45986 2.78439 5.15633Z"
+                                    fill="#6E3BFF"
+                                />
+                            </svg>
+                            {arrow && (
+                                <div className="bg-white absolute top-7 left-0 rounded-lg border-[1px] border-[#c1c1c1] py-1 px-2 flex flex-col w-20">
+                                    <div
+                                        className="border-b-[1px] border-b-[#e2e2e2] py-1 text-[#606060] cursor-pointer text-center"
+                                        onClick={onClickRecent}
+                                    >
+                                        최근순
+                                    </div>
+                                    <div
+                                        className="py-1 text-[#606060] cursor-pointer text-center"
+                                        onClick={onClickRecommend}
+                                    >
+                                        유사도순
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
-                    <div className="text-[#e2e2e2] flex items-center gap-1">
+                    <div className="text-[#606060] flex items-center gap-1">
                         <svg
                             width="20"
                             height="20"
@@ -123,26 +161,47 @@ export default function DetailMenu() {
                         </svg>
                     </div>
                 </div>
-                {detailReview[currentPage - 1]?.map((item, idx) => (
-                    <div
-                        className="py-4 border-b-[1px] border-b-[#e2e2e2] flex flex-col gap-2 w-full px-6"
-                        key={idx}
-                    >
-                        <div className="flex justify-between">
-                            <div className="text-[#323232] font-[Pretendard-SemiBold]">
-                                {item.member.nickname}
-                            </div>
-                            <div className="text-[#c1c1c1] text-md items-center">
-                                {item.created_at.slice(0, 10)}
-                            </div>
-                        </div>
-                        <div className="text-[#7f7f7f] text-sm">
-                            {item.content.length >= 100
-                                ? `${item.content.slice(0, 100)}…`
-                                : item.content}
-                        </div>
-                    </div>
-                ))}
+                {reviews
+                    ? detailReview[currentPage - 1]?.map((item, idx) => (
+                          <div
+                              className="py-4 border-b-[1px] border-b-[#e2e2e2] flex flex-col gap-2 w-full px-6"
+                              key={idx}
+                          >
+                              <div className="flex justify-between">
+                                  <div className="text-[#323232] font-[Pretendard-SemiBold]">
+                                      {item.member.nickname}
+                                  </div>
+                                  <div className="text-[#c1c1c1] text-md items-center">
+                                      {item.created_at.slice(0, 10)}
+                                  </div>
+                              </div>
+                              <div className="text-[#7f7f7f] text-sm">
+                                  {item.content.length >= 100
+                                      ? `${item.content.slice(0, 100)}…`
+                                      : item.content}
+                              </div>
+                          </div>
+                      ))
+                    : sortDetailReview[currentPage - 1]?.map((item, idx) => (
+                          <div
+                              className="py-4 border-b-[1px] border-b-[#e2e2e2] flex flex-col gap-2 w-full px-6"
+                              key={idx}
+                          >
+                              <div className="flex justify-between">
+                                  <div className="text-[#323232] font-[Pretendard-SemiBold]">
+                                      {item.member.nickname}
+                                  </div>
+                                  <div className="text-[#c1c1c1] text-md items-center">
+                                      {item.created_at.slice(0, 10)}
+                                  </div>
+                              </div>
+                              <div className="text-[#7f7f7f] text-sm">
+                                  {item.content.length >= 100
+                                      ? `${item.content.slice(0, 100)}…`
+                                      : item.content}
+                              </div>
+                          </div>
+                      ))}
             </div>
         </div>
     );

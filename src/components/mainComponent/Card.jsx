@@ -13,7 +13,8 @@ import { getReviewSort } from "../../apis/getReviewSort";
 export default function Card(prop) {
     const [isHover, setIsHover] = useState(false);
     const { setDetailInfor } = useStore(storeDetailInfor);
-    const { setDetailReview } = useStore(storeDetailReview);
+    const { setDetailReview, setSortDetailReview } =
+        useStore(storeDetailReview);
     const {
         restaurantList,
         cafeList,
@@ -39,6 +40,7 @@ export default function Card(prop) {
         const review = await getRestaurantReview(prop.prop.id);
         setDetailReview(review);
         const sortReview = await getReviewSort(prop.prop.id);
+        setSortDetailReview(sortReview);
         navi(`/main/${prop.prop.id}#infor`);
     };
     const onClickRemove = () => {

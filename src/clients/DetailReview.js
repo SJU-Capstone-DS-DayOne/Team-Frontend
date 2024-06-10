@@ -12,7 +12,7 @@ const storeDetailReview = create((set) => ({
     detailReview: [],
     setDetailReview: (val) => set({ detailReview: chunkArray(val, 5) }),
     sortDetailReview: [],
-    // setSortDetailReview
+    setSortDetailReview: (val) => set({ sortDetailReview: chunkArray(val, 5) }),
 }));
 
 export default storeDetailReview;

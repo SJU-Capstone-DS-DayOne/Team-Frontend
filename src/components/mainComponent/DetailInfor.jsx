@@ -10,7 +10,7 @@ export default function DetailInfor() {
             <DetailImage />
             <div className="flex justify-between w-full gap-4">
                 <div className="flex flex-1 h-[44dvh] bg-white rounded-2xl flex-col py-4">
-                    <div className="px-6 pb-4 text-[#323232] font-[Pretendard-Bold] text-xl border-b-[1px] border-b-[#e2e2e2]">
+                    <div className="px-6 pb-4 text-[#6e3bff] font-[Pretendard-Bold] text-xl border-b-[1px] border-b-[#e2e2e2]">
                         가게 정보
                     </div>
                     <div className="flex flex-col gap-4 pt-4 pl-6">
@@ -79,7 +79,7 @@ export default function DetailInfor() {
                     </div>
                 </div>
                 <div className="flex flex-1 h-[44dvh] bg-white rounded-2xl flex-col py-4">
-                    <div className="px-6 pb-4 text-[#323232] font-[Pretendard-Bold] text-xl border-b-[1px] border-b-[#e2e2e2]">
+                    <div className="px-6 pb-4 text-[#6e3bff] font-[Pretendard-Bold] text-xl border-b-[1px] border-b-[#e2e2e2]">
                         AI 리뷰요약
                     </div>
                     <div className="flex flex-col pt-4 pl-6 pr-10">
