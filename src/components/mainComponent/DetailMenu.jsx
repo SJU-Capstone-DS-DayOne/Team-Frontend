@@ -37,8 +37,8 @@ export default function DetailMenu() {
                     <div className="font-[Pretendard-Bold] text-xl">메뉴</div>
                     <div className="flex items-center gap-1">
                         <svg
-                            width="24"
-                            height="25"
+                            width="16"
+                            height="17"
                             viewBox="0 0 16 17"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -48,24 +48,9 @@ export default function DetailMenu() {
                                 fill="#6E3BFF"
                             />
                         </svg>
-                        <svg
-                            width="29"
-                            height="3"
-                            viewBox="0 0 29 3"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M29 1.5H0"
-                                stroke="#6E3BFF"
-                                strokeOpacity="0.5"
-                                strokeWidth="2"
-                                strokeDasharray="4 4"
-                            />
-                        </svg>
 
-                        <div className="text-sm text-[#6e3bff] font-[Pretendard-SemiBold]">
-                            Palette Pick!
+                        <div className="text-base text-[#6e3bff] font-[Pretendard-SemiBold]">
+                            - Palette Pick
                         </div>
                     </div>
                 </div>

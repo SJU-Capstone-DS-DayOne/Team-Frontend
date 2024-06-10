@@ -31,6 +31,9 @@ export default function History() {
 
         const response = await postDateCourseReview(id, content);
         if (response) {
+            const result = await getDateCourse();
+            setData(result);
+
             setReviewArray((prevState) => {
                 const newState = [...prevState];
                 newState[idx] = false;

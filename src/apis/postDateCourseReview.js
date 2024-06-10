@@ -12,6 +12,8 @@ export const postDateCourseReview = async (id, content) => {
                 }/date-course-restaurant/${id}/reviews`,
                 {
                     content: content,
+                },
+                {
                     headers: {
                         Access: access,
                     },
