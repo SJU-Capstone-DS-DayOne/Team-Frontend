@@ -210,11 +210,11 @@ export default function RightSection() {
             </div>
 
             <div
-                className="w-full p-4 bg-[#6e3bff] flex justify-center items-center text-white cursor-pointer text-sm
+                className="w-full p-4 bg-[#6e3bff] flex justify-center items-center text-white cursor-pointer
              rounded-xl font-[Pretendard-Semibold]"
                 onClick={onClickRecommend}
             >
-                AI 기반 데이트코스 찾기
+                추천 받기
             </div>
         </div>
     );

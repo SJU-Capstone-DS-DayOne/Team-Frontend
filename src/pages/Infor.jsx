@@ -21,7 +21,7 @@ export default function Infor() {
                 style={{ boxShadow: "0 0 10px rgba(0,0,0,0.1)" }}
             >
                 <div className="flex items-center font-[Pretendard-Bold] text-[#323232] text-xl ">
-                    데이트 코스 찾기
+                    AI 기반 데이트코스 찾기
                 </div>
 
                 <RightSection />
