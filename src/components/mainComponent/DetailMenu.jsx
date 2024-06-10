@@ -33,8 +33,41 @@ export default function DetailMenu() {
     return (
         <div className="flex w-full max-h-full gap-4 mt-4 overflow-hidden">
             <div className="flex flex-1 bg-white w-full h-[76dvh] rounded-2xl flex-col py-4">
-                <div className="px-6 pb-4 text-[#6e3bff] font-[Pretendard-Bold] text-xl border-b-[1px] border-b-[#e2e2e2]">
-                    메뉴
+                <div className="flex justify-between items-center px-6 pb-4 text-[#323232] border-b-[1px] border-b-[#e2e2e2]">
+                    <div className="font-[Pretendard-Bold] text-xl">메뉴</div>
+                    <div className="flex items-center gap-1">
+                        <svg
+                            width="24"
+                            height="25"
+                            viewBox="0 0 16 17"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M8.00031 13.3001L4.30031 16.1251C4.11697 16.2751 3.91697 16.3461 3.70031 16.3381C3.48364 16.3301 3.29197 16.2674 3.12531 16.1501C2.95864 16.0328 2.82964 15.8744 2.73831 15.6751C2.64697 15.4758 2.64264 15.2591 2.72531 15.0251L4.15031 10.4001L0.525307 7.8251C0.325307 7.69177 0.200307 7.51677 0.150307 7.3001C0.100307 7.08344 0.10864 6.88344 0.175307 6.7001C0.241974 6.51677 0.35864 6.3541 0.525307 6.2121C0.691974 6.0701 0.891974 5.99944 1.12531 6.0001H5.60031L7.05031 1.2001C7.13364 0.96677 7.26297 0.787436 7.43831 0.662103C7.61364 0.53677 7.80097 0.474436 8.00031 0.475103C8.19964 0.47577 8.38731 0.538436 8.56331 0.663103C8.73931 0.78777 8.86831 0.96677 8.95031 1.2001L10.4003 6.0001H14.8753C15.1086 6.0001 15.3086 6.0711 15.4753 6.2131C15.642 6.3551 15.7586 6.51744 15.8253 6.7001C15.892 6.88277 15.9003 7.08277 15.8503 7.3001C15.8003 7.51744 15.6753 7.69244 15.4753 7.8251L11.8503 10.4001L13.2753 15.0251C13.3586 15.2584 13.3546 15.4751 13.2633 15.6751C13.172 15.8751 13.0426 16.0334 12.8753 16.1501C12.708 16.2668 12.5163 16.3294 12.3003 16.3381C12.0843 16.3468 11.8843 16.2758 11.7003 16.1251L8.00031 13.3001Z"
+                                fill="#6E3BFF"
+                            />
+                        </svg>
+                        <svg
+                            width="29"
+                            height="3"
+                            viewBox="0 0 29 3"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M29 1.5H0"
+                                stroke="#6E3BFF"
+                                strokeOpacity="0.5"
+                                strokeWidth="2"
+                                strokeDasharray="4 4"
+                            />
+                        </svg>
+
+                        <div className="text-sm text-[#6e3bff] font-[Pretendard-SemiBold]">
+                            Palette Pick!
+                        </div>
+                    </div>
                 </div>
 
                 {sortedMenu.map((val, idx) => (

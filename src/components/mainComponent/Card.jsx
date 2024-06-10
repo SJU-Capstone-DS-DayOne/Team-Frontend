@@ -11,6 +11,7 @@ import storeCategory from "../../clients/CategoryState";
 import { getReviewSort } from "../../apis/getReviewSort";
 
 export default function Card(prop) {
+    console.log(prop);
     const [isHover, setIsHover] = useState(false);
     const { setDetailInfor } = useStore(storeDetailInfor);
     const { setDetailReview, setSortDetailReview } =
