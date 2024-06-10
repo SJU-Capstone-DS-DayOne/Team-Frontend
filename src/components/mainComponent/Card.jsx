@@ -11,7 +11,6 @@ import storeCategory from "../../clients/CategoryState";
 import { getReviewSort } from "../../apis/getReviewSort";
 
 export default function Card(prop) {
-    console.log(prop);
     const [isHover, setIsHover] = useState(false);
     const [imageItem, setImageItem] = useState(null);
     const { setDetailInfor } = useStore(storeDetailInfor);
@@ -116,7 +115,11 @@ export default function Card(prop) {
         (focus === "카페" && cafeList.includes(prop.prop.name)) ||
         (focus === "술집" && barList.includes(prop.prop.name)) ? (
         <div
-            className="relative flex flex-col justify-center w-[16.4dvw] h-[21.32dvh] rounded-2xl xl:w-[16dvw] xl:h-[21.7dvw] cursor-pointer"
+            className="relative flex flex-col justify-center cursor-pointer rounded-2xl"
+            style={{
+                width: `${prop.width / 3 - 52}px`,
+                height: `${(prop.width / 3 - 52) * 1.6}px`,
+            }}
             onClick={onClickRemove}
         >
             {imageItem ? (
@@ -233,7 +236,11 @@ export default function Card(prop) {
         </div>
     ) : (
         <div
-            className="relative flex flex-col justify-center w-[16.4dvw] h-[21.32dvh] rounded-2xl xl:w-[16dvw] xl:h-[21.7dvw]"
+            className="relative flex flex-col justify-center"
+            style={{
+                width: `${prop.width / 3 - 12}px`,
+                height: `${(prop.width / 3 - 12) * 1.38}px`,
+            }}
             key={prop.prop.id}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}

@@ -3,15 +3,17 @@ import storeListSelect from "../../clients/ListSelect";
 import { useStore } from "zustand";
 import storeCategoryFocus from "../../clients/CategoryFocus";
 import usePaginationStore from "../../clients/UsePagination";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CardComponent() {
+    const [chunkedArray, setChunkedArray] = useState([]);
+    const [array, setArray] = useState([]);
+    const [parentWidth, setParentWidth] = useState(0);
     const { restaurantArrays, cafeArrays, barArrays } =
         useStore(storeListSelect);
     const { focus } = useStore(storeCategoryFocus);
     const { currentPage, onFirstPage } = useStore(usePaginationStore);
-    const [chunkedArray, setChunkedArray] = useState([]);
-    const [array, setArray] = useState([]);
+    const parentRef = useRef(null);
 
     const getArrayByFocus = () => {
         switch (focus) {
@@ -33,6 +35,11 @@ export default function CardComponent() {
         }
         return chunkedArr;
     };
+    useEffect(() => {
+        if (parentRef.current) {
+            setParentWidth(parentRef.current.offsetWidth); // width 값 설정
+        }
+    }, []);
 
     useEffect(() => {
         onFirstPage();
@@ -46,9 +53,12 @@ export default function CardComponent() {
     }, [currentPage, chunkedArray]);
 
     return (
-        <div className="relative z-0 flex flex-wrap items-center w-full h-full gap-4 mt-2">
+        <div
+            className="relative z-0 flex flex-wrap items-center w-full h-full gap-4 mt-2"
+            ref={parentRef}
+        >
             {array.map((val) => (
-                <Card key={val.id} prop={val} />
+                <Card key={val.id} prop={val} width={parentWidth} />
             ))}
         </div>
     );
