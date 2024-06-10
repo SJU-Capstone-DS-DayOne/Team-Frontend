@@ -96,8 +96,10 @@ export default function RecommendColdstart() {
                                     <div
                                         className="absolute top-0 left-0 rounded-3xl"
                                         style={{
-                                            width: "236.6px",
-                                            height: "378.56px",
+                                            width: `${parentWidth / 5 - 52}px`,
+                                            height: `${
+                                                (parentWidth / 5 - 52) * 1.6
+                                            }px`,
                                             backgroundColor: "#6e3bff",
                                             opacity: 0.2,
                                         }}

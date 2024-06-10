@@ -26,7 +26,7 @@ export default function ColdStart() {
                 <>
                     <RecommendColdstart />
                     <div className="text-[#323232] font-[Pretendard-SemiBold] text-2xl mt-8">
-                        AI가 사용자의 취향을 분석하고 있어요!
+                        AI가 추천 결과를 제공하고 있어요
                     </div>
                 </>
             )}
