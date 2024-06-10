@@ -61,11 +61,13 @@ export default function DetailMenu() {
             </div>
             <div className="flex flex-1 bg-white w-full h-[76dvh] rounded-2xl flex-col py-4">
                 <div className="flex items-center justify-between border-b-[1px] border-b-[#e2e2e2] pl-6 pr-4 pb-4 ">
-                    <div className="flex gap-2">
-                        <div className="text-[#323232] font-[Pretendard-Bold] text-xl ">
+                    <div className="flex items-center gap-2">
+                        <div className="text-[#323232] font-[Pretendard-Bold] text-xl">
                             리뷰
                         </div>
-                        <div className="cursor"></div>
+                        <div className="p-2 text-center text-white bg-[#6e3bff] cursor-pointer rounded-xl">
+                            정렬
+                        </div>
                     </div>
                     <div className="text-[#e2e2e2] flex items-center gap-1">
                         <svg
