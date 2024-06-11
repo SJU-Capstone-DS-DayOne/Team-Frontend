@@ -107,9 +107,6 @@ export default function RightSection() {
                                     viewBox="0 0 40 40"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
-                                    onClick={(event) =>
-                                        onClickCategory(event, val)
-                                    }
                                 >
                                     <g clipPath="url(#clip0_205_3070)">
                                         <path
