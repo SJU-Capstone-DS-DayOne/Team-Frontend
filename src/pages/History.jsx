@@ -4,41 +4,59 @@ import { postDateCourseReview } from "../apis/postDateCourseReview";
 
 export default function History() {
     const [data, setData] = useState([]);
-    const [reviewArray, setReviewArray] = useState([false, false, false]);
-    const [textareaValue, setTextareaValue] = useState(["", "", ""]);
+    const [reviewArray, setReviewArray] = useState([]);
+    const [textareaValue, setTextareaValue] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             const result = await getDateCourse();
             setData(result);
+
+            // Initialize reviewArray and textareaValue based on fetched data
+            const initialReviewArray = result.map((course) =>
+                course.dateCourseRestaurantList.map(() => false)
+            );
+            const initialTextareaValue = result.map((course) =>
+                course.dateCourseRestaurantList.map(() => "")
+            );
+
+            setReviewArray(initialReviewArray);
+            setTextareaValue(initialTextareaValue);
         };
 
         fetchData();
     }, []);
 
-    const handleChange = (event, idx) => {
+    const handleChange = (event, courseIdx, restaurantIdx) => {
         setTextareaValue((prevState) => {
             const newState = [...prevState];
-            newState[idx] = event.target.value;
+            newState[courseIdx][restaurantIdx] = event.target.value;
             return newState;
         });
     };
 
-    const onClickReview = async (idx, index) => {
-        const content = textareaValue[idx];
+    const onClickReview = async (idx, innerIdx) => {
+        const content = textareaValue[innerIdx][idx];
         const id =
-            data[index].dateCourseRestaurantList[idx].dateCourseRestaurantId;
+            data[innerIdx].dateCourseRestaurantList[idx].dateCourseRestaurantId;
+
+        console.log(id);
 
         const response = await postDateCourseReview(id, content);
         if (response) {
             const result = await getDateCourse();
             setData(result);
 
-            setReviewArray((prevState) => {
-                const newState = [...prevState];
-                newState[idx] = false;
-                return newState;
-            });
+            setReviewArray(
+                result.map((value) =>
+                    value.dateCourseRestaurantList.map(() => false)
+                )
+            );
+            setTextareaValue(
+                result.map((value) =>
+                    value.dateCourseRestaurantList.map(() => "")
+                )
+            );
         }
     };
 
@@ -191,19 +209,25 @@ export default function History() {
                                                 {val.review.content}
                                             </div>
                                         </div>
-                                    ) : reviewArray[idx] ? (
+                                    ) : reviewArray[index][idx] ? (
                                         <div className="flex flex-col gap-3">
                                             <textarea
                                                 type="text"
                                                 className="p-3 h-20 bg-[#f3f3f3] flex resize-none ring-1 ring-inset ring-[#e2e2e2] focus:ring-2 focus:ring-inset focus:ring-[#6e3bff] focus:outline-none"
                                                 placeholder="내용을 입력해주세요."
-                                                value={textareaValue[idx]}
+                                                value={
+                                                    textareaValue[index][idx]
+                                                }
                                                 onChange={(event) =>
-                                                    handleChange(event, idx)
+                                                    handleChange(
+                                                        event,
+                                                        index,
+                                                        idx
+                                                    )
                                                 }
                                             />
                                             <div className="flex items-center justify-between">
-                                                <div className="text-[#C1C1C1] text-sm">{`${textareaValue[idx].length} / 200`}</div>
+                                                <div className="text-[#C1C1C1] text-sm">{`${textareaValue[index][idx].length} / 200`}</div>
                                                 <div
                                                     className="text-sm text-[#6E3BFF] cursor-pointer"
                                                     onClick={() =>
@@ -233,7 +257,7 @@ export default function History() {
                                                                     [
                                                                         ...prevState,
                                                                     ];
-                                                                newState[
+                                                                newState[index][
                                                                     idx
                                                                 ] = true;
                                                                 return newState;
