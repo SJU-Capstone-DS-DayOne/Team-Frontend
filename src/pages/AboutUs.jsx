@@ -13,7 +13,7 @@ export default function AboutUs() {
     ).toString();
 
     return (
-        <div className="relative">
+        <div className="relative h-full">
             <svg
                 width="40"
                 height="40"
