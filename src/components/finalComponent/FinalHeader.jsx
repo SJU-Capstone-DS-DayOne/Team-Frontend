@@ -2,13 +2,28 @@ import { useStore } from "zustand";
 import storeCategory from "../../clients/CategoryState";
 import storePlaceTag from "../../clients/PlaceTagInfor";
 import storeDepositUserInfor from "../../clients/DepositUserInfor";
-
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import storeListSelect from "../../clients/ListSelect";
 
 export default function Header() {
     const { isSelect } = useStore(storeCategory);
     const { name } = useStore(storePlaceTag);
     const { nickname } = useStore(storeDepositUserInfor);
+    const { restaurantArrays, cafeArrays, barArrays } =
+        useStore(storeListSelect);
+
+    const navi = useNavigate();
+
+    useEffect(() => {
+        if (
+            restaurantArrays.length === 0 ||
+            cafeArrays.length === 0 ||
+            barArrays.length === 0
+        ) {
+            navi("/infor");
+        }
+    }, []);
 
     return (
         <div className="flex items-center justify-between w-full h-full bg-opacity-60 backdrop-blur-xl border-b-[1px] border-b-[#d9d9d9] px-24">
