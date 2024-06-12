@@ -51,9 +51,8 @@ export default function CoupleConnect() {
 
     const onCoupleConnect = async () => {
         const result = await postCoupleCode(parseInt(inputValue));
-        if (result.response.status === 200 || result.response.status === 400)
-            navigate("/");
-        else if (result.response.status === 404) {
+        if (result.status === 200 || result.status === 400) navigate("/");
+        else if (result.status === 404) {
             setFail(true);
         }
     };

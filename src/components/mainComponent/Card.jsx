@@ -138,20 +138,14 @@ export default function Card(prop) {
             <div className="w-full bg-white h-[45%] rounded-b-2xl p-3 flex flex-col border-x-[3px] border-b-[3px] border-[#6e3bff]">
                 <div className="flex-1 border-b-[1px] border-b-[#f3f3f3] flex flex-col">
                     <div className="flex items-center justify-between">
-                        <div className="font-[Pretendard-SemiBold] text-[#323232]">
-                            {prop.prop.name.length > 10
-                                ? prop.prop.name.slice(0, 10)
-                                : prop.prop.name}
+                        <div className="font-[Pretendard-SemiBold] text-[#323232] text-sm 2xl:text-base">
+                            {prop.prop.name}
                         </div>
-                        <div className="flex gap-1">
-                            {prop.prop.categoryResponseList.map((val) => (
-                                <div className="text-sm" key={val.id}>
-                                    #{val.name}
-                                </div>
-                            ))}
+                        <div className="text-xs 2xl:text-sm">
+                            #{prop.prop.categoryResponseList[0].name}
                         </div>
                     </div>
-                    <div className="text-[#c1c1c1] font-[Pretendard-SemiBold] text-sm">
+                    <div className="text-[#c1c1c1] font-[Pretendard-SemiBold] text-xs 2xl:text-sm">
                         대표 메뉴
                     </div>
                 </div>
@@ -358,20 +352,16 @@ export default function Card(prop) {
             >
                 <div className="flex-1 border-b-[1px] border-b-[#f3f3f3] flex flex-col">
                     <div className="flex items-center justify-between">
-                        <div className="font-[Pretendard-SemiBold] text-[#323232]">
+                        <div className="font-[Pretendard-SemiBold] text-[#323232] text-sm 2xl:text-base">
                             {prop.prop.name.length > 10
                                 ? prop.prop.name.slice(0, 10)
                                 : prop.prop.name}
                         </div>
-                        <div className="flex gap-1">
-                            {prop.prop.categoryResponseList.map((val) => (
-                                <div className="text-sm" key={val.id}>
-                                    #{val.name}
-                                </div>
-                            ))}
+                        <div className="text-xs 2xl:text-sm">
+                            #{prop.prop.categoryResponseList[0].name}
                         </div>
                     </div>
-                    <div className="text-[#c1c1c1] font-[Pretendard-SemiBold] text-sm">
+                    <div className="text-[#c1c1c1] font-[Pretendard-SemiBold] text-xs 2xl:text-sm">
                         대표 메뉴
                     </div>
                 </div>

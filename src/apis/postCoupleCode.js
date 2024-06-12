@@ -17,7 +17,7 @@ export const postCoupleCode = async (code) => {
                     },
                 }
             );
-
+            console.log(response);
             return response;
         } catch (error) {
             if (error.response.status === 401) {
@@ -27,7 +27,7 @@ export const postCoupleCode = async (code) => {
                     return makeRequest(); // Retry the original request
                 }
             }
-            return error;
+            return error.response;
         }
     }
 
