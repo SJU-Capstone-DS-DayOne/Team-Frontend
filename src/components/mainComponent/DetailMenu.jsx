@@ -65,7 +65,7 @@ export default function DetailMenu() {
                                 {val.name}
                             </div>
 
-                            {idx <= 2 && (
+                            {val.ranking && (
                                 <svg
                                     width="16"
                                     height="17"
