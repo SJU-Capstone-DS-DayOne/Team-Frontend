@@ -3,6 +3,7 @@ import pdf from "../pdfs/capstone_ppt.pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 import { useState } from "react";
+import style from "../styles/loading.module.css";
 
 export default function AboutUs() {
     const [numPages, setNumPages] = useState(1);
@@ -53,7 +54,16 @@ export default function AboutUs() {
                 />
             </svg>
 
-            <Document file={pdf}>
+            <Document
+                file={pdf}
+                loading={
+                    <div className="flex items-center justify-center h-dvh">
+                        <div
+                            className={`${style.loader_6} ${style.loader}`}
+                        ></div>
+                    </div>
+                }
+            >
                 <Page pageNumber={numPages}></Page>
             </Document>
         </div>
