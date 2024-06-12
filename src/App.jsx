@@ -15,6 +15,7 @@ import DateCourse from "./pages/DateCourse";
 import History from "./pages/History";
 import "./index.css";
 import Test from "./pages/Test";
+import AboutUs from "./pages/AboutUs";
 
 export default function App() {
     return (
@@ -28,6 +29,7 @@ export default function App() {
                 <Route path="/infor" element={<Infor />} />
                 <Route path="/coupleconnect" element={<CoupleConnect />} />
                 <Route path="/history" element={<History />} />
+                <Route path="/aboutus" element={<AboutUs />} />
             </Route>
 
             <Route path="/main" element={<Main />}>

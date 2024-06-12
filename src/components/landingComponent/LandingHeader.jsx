@@ -67,7 +67,7 @@ export default function LandingHeader() {
                     </Link>
                 ) : null}
                 <Link
-                    to={"/infor"}
+                    to={"/aboutus"}
                     className="text-[#c1c1c1] text-lg leading-normal flex pt-1 cursor-pointer"
                 >
                     About Us
