@@ -18,8 +18,8 @@ export default function Header() {
     useEffect(() => {
         if (
             restaurantArrays.length === 0 ||
-            cafeArrays.length === 0 ||
-            barArrays.length === 0
+            (isSelect["카페"] && cafeArrays.length === 0) ||
+            (isSelect["술집"] && barArrays.length === 0)
         ) {
             navi("/infor");
         }
