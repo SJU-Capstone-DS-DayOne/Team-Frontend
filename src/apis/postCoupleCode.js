@@ -18,12 +18,8 @@ export const postCoupleCode = async (code) => {
                 }
             );
 
-            if (response.status === 200) {
-                console.log(response);
-                return true;
-            }
+            return response;
         } catch (error) {
-            console.error(error);
             if (error.response.status === 401) {
                 localStorage.removeItem("access");
                 const newAccessToken = await getNewAccessToken();
@@ -31,8 +27,7 @@ export const postCoupleCode = async (code) => {
                     return makeRequest(); // Retry the original request
                 }
             }
-            console.error(error);
-            throw error;
+            return error;
         }
     }
 

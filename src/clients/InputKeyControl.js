@@ -5,23 +5,19 @@ const storeInputKey = create((set) => ({
     inputValue: "",
     onInput: (event) => {
         set((state) => ({
-            inputValue: (state.inputValue += event.target.value),
+            inputValue: state.inputValue + event.target.value,
+            key: state.key + 1,
         }));
-        set((state) => ({ key: state.key + 1 }));
     },
     onDelete: () => {
         set((state) => ({
             inputValue: state.inputValue.slice(0, state.key - 1),
+            key: state.key - 1,
         }));
-        set((state) => ({ key: state.key - 1 }));
     },
     onReset: () => {
         set({ key: 0, inputValue: "" });
     },
-    // onRemove: () => {
-    //     set({ inputValue: "" });
-    //     set({ key: 0 });
-    // }, 추후 inputvalue값을 아에 없애고 싶을 때 기능구현하기.
 }));
 
 export default storeInputKey;

@@ -12,6 +12,7 @@ export default function CoupleConnect() {
     const { signalCode, setSignalCode } = useStore(storeSignalCode);
     const { key, inputValue, onReset } = useStore(storeInputKey);
 
+    const [fail, setFail] = useState(false);
     const [haveCode, setHaveCode] = useState(false);
 
     const buttonRef = useRef(null);
@@ -50,12 +51,16 @@ export default function CoupleConnect() {
 
     const onCoupleConnect = async () => {
         const result = await postCoupleCode(parseInt(inputValue));
-        if (result) navigate("/");
+        if (result.response.status === 200 || result.response.status === 400)
+            navigate("/");
+        else if (result.response.status === 404) {
+            setFail(true);
+        }
     };
 
     return (
         <div className="flex items-center justify-center w-dvw h-[90dvh] bg-[#f3f3f3] mt-[10dvh]">
-            <div className="flex flex-col justify-center items-center p-8 bg-white rounded-[24px] gap-9">
+            <div className="flex flex-col justify-center items-center p-8 bg-white rounded-[24px]">
                 <div className="flex flex-col items-center justify-center gap-3">
                     <div className="text-2xl font-[Pretendard-Bold] text-[#6E3BFF] ">
                         연인의 시그널은?
@@ -64,7 +69,14 @@ export default function CoupleConnect() {
                         연인의 숫자 여섯자리를 입력해주세요
                     </div>
                 </div>
-                <div className="flex flex-col items-center justify-center gap-5 w-[350px]">
+                {fail ? (
+                    <div className="text-[#F15F5F] text-sm h-9 flex justify-center items-center">
+                        커플 코드가 일치하지 않습니다.
+                    </div>
+                ) : (
+                    <div className="h-9"></div>
+                )}
+                <div className="flex flex-col items-center justify-center gap-5 w-[350px] mb-9">
                     <div className="p-4 bg-[#f3f3f3] rounded-xl text-[#606060] text-3xl font-[Pretendard-Bold] w-full text-center h-[67.983px]">
                         {haveCode ? signalCode : null}
                     </div>
@@ -72,7 +84,7 @@ export default function CoupleConnect() {
                 </div>
                 <button
                     type="submit"
-                    className="flex items-center justify-center w-full p-4 text-white rounded-xl bg-[#6e3bff]  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                    className="flex items-center justify-center w-full p-4 text-white rounded-xl bg-[#6e3bff] cursor-pointer  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                     style={{
                         opacity: "0.7",
                         pointerEvents: "none",

@@ -8,6 +8,7 @@ export default function SignupForm() {
     const [nickname, setNickname] = useState("");
     const [phone, setPhone] = useState("");
     const [birth, setBirth] = useState("");
+    const [fail, setFail] = useState(true);
     const [booleanGender, setBooleanGender] = useState(true);
 
     const idRef = useRef(null);
@@ -31,6 +32,8 @@ export default function SignupForm() {
         );
         if (result) {
             navigate("/");
+        } else {
+            setFail(false);
         }
     };
     const onChangeSignupOpacity = () => {
@@ -56,8 +59,15 @@ export default function SignupForm() {
             className="flex flex-col  px-8 pt-8 bg-white rounded-[32px]  justify-center"
             style={{ boxShadow: "0 0 10px rgba(0,0,0,0.1)" }}
         >
-            <div className="font-[Pretendard-Bold] text-2xl  text-[#323232] ">
-                회원가입
+            <div className="flex items-center justify-between">
+                <div className="font-[Pretendard-Bold] text-2xl  text-[#323232] ">
+                    회원가입
+                </div>
+                {!fail && (
+                    <div className="text-[#F15F5F] text-sm">
+                        중복된 이메일입니다.
+                    </div>
+                )}
             </div>
 
             <form className="flex flex-col justify-center w-[300px] mt-4">

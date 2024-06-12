@@ -31,7 +31,6 @@ export default function Login1() {
         const result = await login(email, password);
 
         if (result) {
-            console.log("login");
             navi("/");
         } else {
             setFail(false);
