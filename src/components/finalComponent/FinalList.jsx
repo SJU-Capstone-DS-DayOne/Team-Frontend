@@ -203,7 +203,7 @@ export default function FinalList() {
                                     <div className="flex text-center w-full p-3 border-[1px] border-[#c1c1c1] rounded-2xl gap-1">
                                         {restaurantList.map((item, index) => (
                                             <div
-                                                className="text-[#c1c1c1] text-lg font-[Pretendard-SemiBold]"
+                                                className="text-[#c1c1c1] text-base font-[Pretendard-SemiBold]"
                                                 key={index}
                                             >
                                                 {index === 0
@@ -341,7 +341,7 @@ export default function FinalList() {
                                     <div className="flex text-center w-full p-3 border-[1px] border-[#c1c1c1] rounded-2xl gap-1">
                                         {cafeList.map((item, index) => (
                                             <div
-                                                className="text-[#c1c1c1] text-lg font-[Pretendard-SemiBold]"
+                                                className="text-[#c1c1c1] text-base font-[Pretendard-SemiBold]"
                                                 key={index}
                                             >
                                                 {index === 0
@@ -473,7 +473,7 @@ export default function FinalList() {
                                     <div className="flex text-center w-full p-3 border-[1px] border-[#c1c1c1] rounded-2xl gap-1">
                                         {barList.map((item, index) => (
                                             <div
-                                                className="text-[#c1c1c1] text-lg font-[Pretendard-SemiBold]"
+                                                className="text-[#c1c1c1] text-base font-[Pretendard-SemiBold]"
                                                 key={index}
                                             >
                                                 {index === 0

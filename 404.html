@@ -2,16 +2,15 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script
-            type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dc12745fa93858bfeec28fd78ce89f07"
-        ></script>
-        <title>Vite + React</title>
+        <title>404 Not Found</title>
     </head>
     <body>
-        <div id="root"></div>
-        <script type="module" src="/src/main.jsx"></script>
+        <script>
+            // Get the current URL path
+            var redirectTo = window.location.pathname;
+            // Redirect to the root with the path as a query string
+            window.location.href = window.location.origin + "/?" + redirectTo;
+        </script>
     </body>
 </html>

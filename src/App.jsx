@@ -16,8 +16,21 @@ import History from "./pages/History";
 import "./index.css";
 import Test from "./pages/Test";
 import AboutUs from "./pages/AboutUs";
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 export default function App() {
+    const history = useHistory();
+
+    useEffect(() => {
+        // 현재 URL의 쿼리 스트링을 가져옵니다.
+        const path = window.location.search.slice(1);
+        if (path) {
+            // 쿼리 스트링이 있으면 해당 경로로 리디렉션합니다.
+            history.replace(path);
+        }
+    }, [history]);
+
     return (
         <Routes>
             <Route path="/" element={<Landing />}>
