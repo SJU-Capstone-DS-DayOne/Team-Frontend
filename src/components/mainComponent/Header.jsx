@@ -13,7 +13,6 @@ export default function Header() {
     const { name } = useStore(storePlaceTag);
     const { nickname } = useStore(storeDepositUserInfor);
     const navi = useNavigate();
-    console.log(restaurantArrays);
 
     useEffect(() => {
         if (

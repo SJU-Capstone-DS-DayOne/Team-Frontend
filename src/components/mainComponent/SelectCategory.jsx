@@ -19,8 +19,10 @@ export default function SelectCategory() {
     } = useStore(storeListSelect);
 
     useEffect(() => {
-        onClear();
-        clearFocus();
+        if (restaurantList.length === 0) {
+            onClear();
+            clearFocus();
+        }
     }, []);
 
     return (
@@ -79,16 +81,14 @@ export default function SelectCategory() {
                                     {val}
                                 </div>
                             </div>
-                            <div className="flex flex-wrap border-l-[1px] border-l-[#e2e2e2] w-full h-full ">
+                            <div className="flex flex-wrap border-l-[1px] border-l-[#e2e2e2] w-full h-full">
                                 {restaurantList.map((value, index) => (
                                     <div
-                                        className="ml-2 text-[#323232] font-[Pretendard-SemiBold] pl-2 items-center flex cursor-pointer"
+                                        className="ml-2 text-[#323232] font-[Pretendard-SemiBold] pl-2 items-center flex cursor-pointer text-sm"
                                         onClick={() => removeRestaurant(value)}
                                         key={index}
                                     >
-                                        {restaurantList.index > 0
-                                            ? `・${value}`
-                                            : value}
+                                        {value}
                                     </div>
                                 ))}
                             </div>
@@ -135,7 +135,7 @@ export default function SelectCategory() {
                             <div className="flex flex-wrap border-l-[1px] border-l-[#e2e2e2] w-full h-full">
                                 {cafeList.map((value, index) => (
                                     <div
-                                        className="ml-2 text-[#323232] font-[Pretendard-SemiBold] pl-2 items-center flex cursor-pointer"
+                                        className="ml-2 text-[#323232] font-[Pretendard-SemiBold] pl-2 items-center flex cursor-pointer text-sm"
                                         onClick={() => removeCafe(value)}
                                         key={index}
                                     >
@@ -177,7 +177,7 @@ export default function SelectCategory() {
                             <div className="flex flex-wrap border-l-[1px] border-l-[#e2e2e2] w-full h-full">
                                 {barList.map((value, index) => (
                                     <div
-                                        className="ml-2 text-[#323232] font-[Pretendard-SemiBold] pl-2 items-center flex cursor-pointer"
+                                        className="ml-2 text-[#323232] font-[Pretendard-SemiBold] pl-2 items-center flex cursor-pointer text-sm"
                                         onClick={() => removeBar(value)}
                                         key={index}
                                     >
