@@ -102,6 +102,19 @@ export default function Card(prop) {
             }
         }
     };
+    function formatName(name) {
+        let cutIndex =
+            name.length > 10
+                ? Math.min(
+                      name.indexOf(" ") === -1 ? 10 : name.indexOf(" "),
+                      name.indexOf("&") === -1 ? 10 : name.indexOf("&")
+                  )
+                : name.length;
+
+        cutIndex = cutIndex > 10 ? 10 : cutIndex;
+
+        return name.length > 10 ? name.slice(0, cutIndex) : name;
+    }
 
     useEffect(() => {
         // 컴포넌트가 마운트될 때 이미지 설정
@@ -110,6 +123,8 @@ export default function Card(prop) {
         );
         setImageItem(initialImageItem);
     }, [prop.prop.rankedMenuResponseList]);
+
+    const sortedName = formatName(prop.prop.name);
 
     return (focus === "식당" && restaurantList.includes(prop.prop.name)) ||
         (focus === "카페" && cafeList.includes(prop.prop.name)) ||
@@ -136,17 +151,21 @@ export default function Card(prop) {
                 </div>
             )}
             <div className="w-full bg-white h-[45%] rounded-b-2xl p-3 flex flex-col border-x-[3px] border-b-[3px] border-[#6e3bff]">
-                <div className="flex-1 border-b-[1px] border-b-[#f3f3f3] flex flex-col">
-                    <div className="flex items-center justify-between">
+                <div className="flex-1 border-b-[1px] border-b-[#f3f3f3] flex  justify-between">
+                    <div className="flex flex-col gap-1">
                         <div className="font-[Pretendard-SemiBold] text-[#323232] text-sm 2xl:text-base">
-                            {prop.prop.name}
+                            {sortedName}
                         </div>
-                        <div className="text-xs 2xl:text-sm">
-                            #{prop.prop.categoryResponseList[0].name}
+                        <div className="text-[#c1c1c1] font-[Pretendard-SemiBold] text-xs 2xl:text-sm">
+                            대표 메뉴
                         </div>
                     </div>
-                    <div className="text-[#c1c1c1] font-[Pretendard-SemiBold] text-xs 2xl:text-sm">
-                        대표 메뉴
+                    <div className="flex flex-col items-end gap-1">
+                        {prop.prop.categoryResponseList.map((val, idx) => (
+                            <div className="text-xs 2xl:text-sm" key={idx}>
+                                #{val.name}
+                            </div>
+                        ))}
                     </div>
                 </div>
                 <div className="flex flex-wrap flex-1 gap-2 py-2">
@@ -350,19 +369,24 @@ export default function Card(prop) {
                     transition: "border-color 0.5s ease",
                 }}
             >
-                <div className="flex-1 border-b-[1px] border-b-[#f3f3f3] flex flex-col">
-                    <div className="flex items-center justify-between">
+                <div className="flex-1 border-b-[1px] border-b-[#f3f3f3] flex  justify-between">
+                    <div className="flex flex-col gap-1">
                         <div className="font-[Pretendard-SemiBold] text-[#323232] text-sm 2xl:text-base">
-                            {prop.prop.name}
+                            {sortedName}
                         </div>
-                        <div className="text-xs 2xl:text-sm">
-                            #{prop.prop.categoryResponseList[0].name}
+                        <div className="text-[#c1c1c1] font-[Pretendard-SemiBold] text-xs 2xl:text-sm">
+                            대표 메뉴
                         </div>
                     </div>
-                    <div className="text-[#c1c1c1] font-[Pretendard-SemiBold] text-xs 2xl:text-sm">
-                        대표 메뉴
+                    <div className="flex flex-col items-end gap-1">
+                        {prop.prop.categoryResponseList.map((val, idx) => (
+                            <div className="text-xs 2xl:text-sm" key={idx}>
+                                #{val.name}
+                            </div>
+                        ))}
                     </div>
                 </div>
+
                 <div className="flex flex-wrap flex-1 gap-2 py-2">
                     {prop.prop.rankedMenuResponseList
                         .sort((a, b) => a.ranking - b.ranking)

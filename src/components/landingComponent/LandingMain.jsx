@@ -79,7 +79,7 @@ export default function LandingMain() {
                     </div>
 
                     <div
-                        className="flex items-center gap-2 px-7 py-3 absolute bottom-10 bg-[#6e3bff] rounded-3xl text-lg cursor-pointer"
+                        className="flex items-center gap-2 px-7 py-3 mt-10 bg-[#6e3bff] rounded-3xl text-lg cursor-pointer"
                         style={{
                             backgroundColor: access ? "#6e3bff" : "#ffffff",
                             outline: !access ? "1px solid #6e3bff" : null,
