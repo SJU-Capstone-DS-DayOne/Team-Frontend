@@ -51,9 +51,14 @@ export default function CoupleConnect() {
 
     const onCoupleConnect = async () => {
         const result = await postCoupleCode(parseInt(inputValue));
-        if (result.status === 200 || result.status === 400) navigate("/");
-        else if (result.status === 404) {
-            setFail(true);
+        if (result.data) {
+            if (result.data.errorMessage === "이미 연결된 커플입니다.") {
+                navigate("/");
+            } else {
+                setFail(result.data.errorMessage);
+            }
+        } else {
+            navigate("/");
         }
     };
 
@@ -70,7 +75,7 @@ export default function CoupleConnect() {
                 </div>
                 {fail ? (
                     <div className="text-[#F15F5F] text-sm h-9 flex justify-center items-center">
-                        커플 코드가 일치하지 않습니다.
+                        {fail}
                     </div>
                 ) : (
                     <div className="h-9"></div>

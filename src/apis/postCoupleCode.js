@@ -27,6 +27,7 @@ export const postCoupleCode = async (code) => {
                     return makeRequest(); // Retry the original request
                 }
             }
+            console.log(error);
             return error.response;
         }
     }
