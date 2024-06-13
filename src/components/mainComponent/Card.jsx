@@ -161,11 +161,17 @@ export default function Card(prop) {
                         </div>
                     </div>
                     <div className="flex flex-col items-end gap-1">
-                        {prop.prop.categoryResponseList.map((val, idx) => (
-                            <div className="text-xs 2xl:text-sm" key={idx}>
-                                #{val.name}
-                            </div>
-                        ))}
+                        {prop.prop.categoryResponseList.map(
+                            (val, idx) =>
+                                idx < 2 && (
+                                    <div
+                                        className="text-xs 2xl:text-sm"
+                                        key={idx}
+                                    >
+                                        #{val.name}
+                                    </div>
+                                )
+                        )}
                     </div>
                 </div>
                 <div className="flex flex-wrap flex-1 gap-2 py-2">
@@ -379,11 +385,17 @@ export default function Card(prop) {
                         </div>
                     </div>
                     <div className="flex flex-col items-end gap-1">
-                        {prop.prop.categoryResponseList.map((val, idx) => (
-                            <div className="text-xs 2xl:text-sm" key={idx}>
-                                #{val.name}
-                            </div>
-                        ))}
+                        {prop.prop.categoryResponseList.map(
+                            (val, idx) =>
+                                idx < 2 && (
+                                    <div
+                                        className="text-xs 2xl:text-sm"
+                                        key={idx}
+                                    >
+                                        #{val.name}
+                                    </div>
+                                )
+                        )}
                     </div>
                 </div>
 

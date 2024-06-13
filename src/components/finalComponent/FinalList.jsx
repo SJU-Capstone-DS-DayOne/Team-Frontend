@@ -203,8 +203,15 @@ export default function FinalList() {
                                     <div className="flex text-center w-full p-3 border-[1px] border-[#c1c1c1] rounded-2xl gap-1">
                                         {restaurantList.map((item, index) => (
                                             <div
-                                                className="text-[#c1c1c1] text-base font-[Pretendard-SemiBold]"
+                                                className="text-[#c1c1c1] font-[Pretendard-SemiBold]"
                                                 key={index}
+                                                style={{
+                                                    fontSize:
+                                                        restaurantList.length ===
+                                                        3
+                                                            ? "14px"
+                                                            : "16px",
+                                                }}
                                             >
                                                 {index === 0
                                                     ? `${item}`
@@ -341,8 +348,14 @@ export default function FinalList() {
                                     <div className="flex text-center w-full p-3 border-[1px] border-[#c1c1c1] rounded-2xl gap-1">
                                         {cafeList.map((item, index) => (
                                             <div
-                                                className="text-[#c1c1c1] text-base font-[Pretendard-SemiBold]"
+                                                className="text-[#c1c1c1] font-[Pretendard-SemiBold]"
                                                 key={index}
+                                                style={{
+                                                    fontSize:
+                                                        cafeList.length === 3
+                                                            ? "14px"
+                                                            : "16px",
+                                                }}
                                             >
                                                 {index === 0
                                                     ? `${item}`
@@ -473,8 +486,14 @@ export default function FinalList() {
                                     <div className="flex text-center w-full p-3 border-[1px] border-[#c1c1c1] rounded-2xl gap-1">
                                         {barList.map((item, index) => (
                                             <div
-                                                className="text-[#c1c1c1] text-base font-[Pretendard-SemiBold]"
+                                                className="text-[#c1c1c1] font-[Pretendard-SemiBold]"
                                                 key={index}
+                                                style={{
+                                                    fontSize:
+                                                        barList.length === 3
+                                                            ? "14px"
+                                                            : "16px",
+                                                }}
                                             >
                                                 {index === 0
                                                     ? `${item}`
