@@ -14,7 +14,7 @@ export default function AboutUs() {
     ).toString();
 
     return (
-        <div className="relative h-full">
+        <div className="relative flex items-center justify-center w-full h-full">
             <svg
                 width="40"
                 height="40"

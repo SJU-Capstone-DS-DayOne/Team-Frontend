@@ -87,7 +87,7 @@ export default function LandingMain() {
                         }}
                         onClick={onClickRecommend}
                     >
-                        데이트 코스 추천
+                        추천 받으러 가기
                         <svg
                             width="14"
                             height="15"

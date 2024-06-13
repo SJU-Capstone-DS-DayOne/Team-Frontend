@@ -353,9 +353,7 @@ export default function Card(prop) {
                 <div className="flex-1 border-b-[1px] border-b-[#f3f3f3] flex flex-col">
                     <div className="flex items-center justify-between">
                         <div className="font-[Pretendard-SemiBold] text-[#323232] text-sm 2xl:text-base">
-                            {prop.prop.name.length > 10
-                                ? prop.prop.name.slice(0, 10)
-                                : prop.prop.name}
+                            {prop.prop.name}
                         </div>
                         <div className="text-xs 2xl:text-sm">
                             #{prop.prop.categoryResponseList[0].name}
@@ -383,5 +381,5 @@ export default function Card(prop) {
         </div>
     );
 }
-// prop.prop.reviewSummerize -> 몇 자 이상 ...
-// prop.prop.restaurantKeyword -> keyword 대신 -> mood
+
+// prop.prop.categoryResponseList[0].name;
