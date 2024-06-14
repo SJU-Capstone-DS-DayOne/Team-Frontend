@@ -10,6 +10,9 @@ export default function SelectCategory() {
     const { focus, setFocus, clearFocus } = useStore(storeCategoryFocus);
     const {
         restaurantList,
+        restaurantArrays,
+        cafeArrays,
+        barArrays,
         removeRestaurant,
         cafeList,
         removeCafe,
@@ -19,11 +22,10 @@ export default function SelectCategory() {
     } = useStore(storeListSelect);
 
     useEffect(() => {
-        if (restaurantList.length === 0) {
-            onClear();
-            clearFocus();
-        }
-    }, []);
+        console.log(12345);
+        onClear();
+        clearFocus();
+    }, [restaurantArrays, cafeArrays, barArrays]);
 
     return (
         <div className="flex flex-col gap-2">
