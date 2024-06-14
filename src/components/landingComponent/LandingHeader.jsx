@@ -5,6 +5,7 @@ import { getName } from "../../apis/getName";
 import { useEffect } from "react";
 import { getColdstart } from "../../apis/getColdstart";
 import storeColdStartInfor from "../../clients/ColdStartInfor";
+import storeClickInfor from "../../clients/ClickInfor";
 
 export default function LandingHeader() {
     const { setId, setNickname, setMemberId, setGender, setPhone, setBirth } =
@@ -13,6 +14,7 @@ export default function LandingHeader() {
     const { nickname } = useStore(storeDepositUserInfor);
     const { setInfor } = useStore(storeColdStartInfor);
     const access = localStorage.getItem("access");
+    const { noClick, setNoClick } = useStore(storeClickInfor);
 
     const navi = useNavigate();
 
@@ -32,6 +34,7 @@ export default function LandingHeader() {
                     } else {
                         const res = await getColdstart();
                         setInfor(res);
+                        setNoClick();
                         navi("/coldstart");
                     }
                 } catch (error) {
@@ -49,12 +52,18 @@ export default function LandingHeader() {
                 <Link
                     to={""}
                     className="font-[Pretendard-Bold] text-[#6E3Bff] text-[36px] cursor-pointer"
+                    style={{
+                        pointerEvents: noClick ? "none" : "auto",
+                    }}
                 >
                     Palette
                 </Link>
                 <Link
                     to={"/"}
                     className="text-[#c1c1c1] text-lg leading-normal flex pt-1 cursor-pointer"
+                    style={{
+                        pointerEvents: noClick ? "none" : "auto",
+                    }}
                 >
                     Home
                 </Link>
@@ -62,6 +71,9 @@ export default function LandingHeader() {
                     <Link
                         to={"/history"}
                         className="text-[#c1c1c1] text-lg leading-normal flex pt-1 cursor-pointer"
+                        style={{
+                            pointerEvents: noClick ? "none" : "auto",
+                        }}
                     >
                         History
                     </Link>
@@ -69,6 +81,9 @@ export default function LandingHeader() {
                 <Link
                     to={"/aboutus"}
                     className="text-[#c1c1c1] text-lg leading-normal flex pt-1 cursor-pointer"
+                    style={{
+                        pointerEvents: noClick ? "none" : "auto",
+                    }}
                 >
                     About Us
                 </Link>

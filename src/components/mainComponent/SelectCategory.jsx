@@ -22,7 +22,6 @@ export default function SelectCategory() {
     } = useStore(storeListSelect);
 
     useEffect(() => {
-        console.log(12345);
         onClear();
         clearFocus();
     }, [restaurantArrays, cafeArrays, barArrays]);

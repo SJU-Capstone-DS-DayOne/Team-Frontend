@@ -7,6 +7,7 @@ import { getName } from "../../apis/getName";
 import storeDepositUserInfor from "../../clients/DepositUserInfor";
 import style from "../../styles/loading.module.css";
 import storeLoading from "../../clients/isLoading";
+import storeClickInfor from "../../clients/ClickInfor";
 
 export default function RecommendColdstart() {
     const [idList, setIdList] = useState([]);
@@ -16,6 +17,8 @@ export default function RecommendColdstart() {
     const { infor } = useStore(storeColdStartInfor);
     const { setId, setNickname, setMemberId, setGender, setPhone, setBirth } =
         useStore(storeDepositUserInfor);
+
+    const { setNoClick } = useStore(storeClickInfor);
 
     const navi = useNavigate();
 
@@ -47,6 +50,7 @@ export default function RecommendColdstart() {
                 data.phone ? setPhone(data.phone) : null;
                 data.birthOfDate ? setBirth(data.birthOfDate) : null;
                 setLoading(false);
+                setNoClick();
                 navi("/");
             }
         };
